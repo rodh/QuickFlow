@@ -35,8 +35,6 @@ Note the presence of `personas.md` — if it exists, mention it alongside the st
 
 Print an **"Existing artifacts"** heading, then a markdown table with `File` and `Contents` columns. One row per existing artifact. The `Contents` cell is a 1-2 sentence summary of what's in that file.
 
-Example:
-
 ```
 ### Existing artifacts
 
@@ -54,6 +52,13 @@ After the table, print a line listing what's **missing** — name each missing a
 If session notes exist in `sessions/`, read the most recent one. Include any open threads or stage checkpoint from the quickflow-recap.
 
 Then print a line summarizing the **current state** — what stage the design is at and any notable context.
+
+Then print a `> **Next up:**` blockquote recommending the logical next step based on the detected stage:
+- **New** → "Start with design-briefing to create a brief."
+- **Has brief** → "Move to concept-forming to explore approaches."
+- **Has concept** → "Move to wireframing to make it concrete."
+- **Has wireframes** → "Move to user-testing to validate the design."
+- **Has test results** → Read the test results and recommend based on what they say: another wireframe iteration if unresolved issues remain, or prototyping if the design tested well.
 
 Present the user with a "Where do you want to pick up?" question with options based on what exists.
 
@@ -87,8 +92,8 @@ When saving outputs, use these names:
 - quickflow-recap → `sessions/YYYY-MM-DD-HHMM.md`
 - Artifact snapshots → `archive/{artifact}-v{n}.md`
 
-## Communication style
+## Rules
 
-- Direct, no preamble, no filler
-- Labeled bullets for facts/constraints; prose for opinions/narratives
-- Honest critique — flag when iteration stops producing improvements
+- Be direct. No preamble, no filler.
+- Labeled bullets for facts/constraints; prose for opinions/narratives.
+- Flag when iteration stops producing improvements.

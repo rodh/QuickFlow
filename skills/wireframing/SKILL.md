@@ -14,11 +14,12 @@ Generate wireframes using these conventions:
 **Structure:** Use box-drawing characters: ┌ ─ ┐ │ └ ┘ ├ ┤ ┬ ┴ ┼
 
 **Alignment rules:**
-- Every box must close at the exact same column it opened. If `┌` starts at column 4 and `─` extends to column 58, then `└` must start at column 4 and `─` must extend to column 58, with `┘` at column 58.
-- All `│` characters on the right side of a box must appear in the same column as the `┐` and `┘` of that box.
-- When nesting boxes, the inner box's right border must be at least 2 columns inside the outer box's right border.
-- After drawing any wireframe, visually verify: scan each `┌` and confirm its `┘` is in the same column. Scan each column of `│` and confirm they form a straight vertical line.
-- If content is too wide for the box, wrap the content — never extend the box past its defined width on some lines.
+- **Right-border lock:** Before drawing any box, decide its right-border column. Every line of that box must place its right `│` at exactly that column. Pad short lines with spaces — never shift the border. If `┌` starts at column 2 and `┐` is at column 40, then every `│` on the right side of that box must be at column 40, and `└` must end with `┘` at column 40.
+- **Column declaration:** For multi-panel or nested layouts, declare column positions in a comment before drawing: `// Columns: 0, 2, 40, 78, 80`. This anchors the layout math upfront and makes misalignment easy to catch.
+- **Column consistency:** After completing a wireframe, verify each vertical border forms a straight line. If any `│` shifts by even one column, redraw that section.
+- **Separator width:** Dashed separators (`─`) inside a box must span exactly from left `│` to right `│`, connecting with `├` on the left and `┤` on the right. Count characters to confirm the separator is the same width as the box's top `┌──...──┐`.
+- **Content wrapping:** If text would exceed box width, break at a word boundary. Never extend the box past its declared right-border column.
+- **Nesting:** Inner boxes must have their right border at least 2 columns inside the outer box's right border.
 
 **Interactive elements:**
 - Buttons: `[Button Label]`
@@ -35,7 +36,12 @@ Generate wireframes using these conventions:
 
 **Annotations:** Use `// comment` on the right side to explain design decisions.
 
-**Width:** Max 60 characters wide so it's readable in terminal.
+**Width:** Choose a width tier based on the content being wireframed:
+- **Compact (~60 chars):** Mobile screens, single components, modals, cards
+- **Standard (~80 chars):** Standard web pages, forms, single-column layouts
+- **Wide (up to 120 chars):** Dashboards, multi-column layouts, admin panels, data tables
+
+Read the concept direction and pick the best fit. Add a width annotation comment at the top of each wireframe: `// Width: Standard (~80 chars)`. The user can override by saying "use wide layout" or similar. Mixed flows can use different widths per screen (e.g., compact for a mobile modal, wide for a dashboard).
 
 **Naming:** Label each screen: `Screen 1: [Name]` with a one-line description of what the user is doing here.
 
@@ -75,24 +81,18 @@ After saving updated wireframes, check if `test-results.md` exists in the curren
 
 ## Rules
 
-- Be direct. No preamble.
+- Be direct. No preamble, no filler.
 - Don't aestheticize the wireframes with unnecessary decoration. The point is structure, not prettiness.
 - If the concept direction is unclear, ask for clarification before wireframing — don't guess.
 - If the user asks for something that contradicts the concept direction from the concept-forming skill, flag the contradiction.
+- Labeled bullets for facts/constraints; prose for opinions/narratives.
+- Flag when iteration stops producing improvements.
 
 ## Before saving
 
-Before overwriting `wireframes.md`, check if it already exists. If it does:
-
-1. Ensure `archive/` exists in the current directory
-2. Count existing versions in `archive/` (e.g., `wireframes-v*.md`) to determine the next version number
-3. Move the existing file to `archive/wireframes-v{n}.md`
-4. Write the new content to the original path
-
-## Communication style
-
-- Direct, no preamble, no filler
-- Labeled bullets for facts/constraints; prose for opinions/narratives
-- Honest critique — flag when iteration stops producing improvements
+Before overwriting `wireframes.md`, check if it already exists. If it does, archive it:
+1. Ensure `archive/` exists
+2. Move existing file to `archive/wireframes-v{n}.md` (where n = count of existing `wireframes-v*.md` in `archive/` + 1)
+3. Write new content to the original path
 
 $ARGUMENTS

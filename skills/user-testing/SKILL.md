@@ -48,13 +48,8 @@ Before testing, scan the wireframe and its annotations for adaptive elements. If
 ## Version stamp
 
 Before running the walkthrough, determine the current wireframe version:
-
-1. Count existing `wireframes-v*.md` files in `archive/`. The current `wireframes.md` is version N+1 (where N is the count of archived versions). If no archives exist, the current wireframes are version 1.
-2. Start the test results output with a metadata line at the very top of the file:
-
-   **Tested against:** wireframes v{N}
-
-This line goes above everything else in test-results.md.
+1. Determine wireframe version: count `wireframes-v*.md` in `archive/` + 1 (if no archives, version is 1).
+2. Start `test-results.md` with: `**Tested against:** wireframes v{N}` as the first line.
 
 ## What to produce for each persona
 
@@ -90,29 +85,22 @@ If the concept from the concept-forming skill included a key bet, report whether
 
 ## Rules
 
-- Be direct. No preamble.
+- Be direct. No preamble, no filler.
 - Per-screen walkthroughs: one prose setup sentence, then bold-labeled bullets for observations. Quotes and "would they come back" stay as prose. Analysis sections are fully structured (numbered lists, tables, labeled bullets).
 - Don't produce generic usability feedback. Every observation must be grounded in a specific persona's behavior pattern and the specific design being tested.
 - If the design description is too vague to simulate a walkthrough, say so and ask for the specific details you need. Don't fake a walkthrough based on assumptions.
 - Don't soften the findings. If the design has a fundamental problem, say it directly.
+- Flag when iteration stops producing improvements.
 
 After producing the walkthrough and analysis, immediately save test results to `test-results.md` (and `personas.md` if generated) using the "Before saving" archive logic below. Don't wait for the user to say "save."
 
 ## Before saving
 
-Before overwriting `test-results.md` or `personas.md`, check if each already exists. For each existing file:
-
-1. Ensure `archive/` exists in the current directory
-2. Count existing versions in `archive/` (e.g., `test-results-v*.md`) to determine the next version number
-3. Move the existing file to `archive/{artifact}-v{n}.md`
-4. Write the new content to the original path
+Before overwriting `test-results.md` or `personas.md`, check if each already exists. For each existing file, archive it:
+1. Ensure `archive/` exists
+2. Move existing file to `archive/{artifact}-v{n}.md` (where n = count of existing `{artifact}-v*.md` in `archive/` + 1)
+3. Write new content to the original path
 
 Archive each file independently.
-
-## Communication style
-
-- Direct, no preamble, no filler
-- Labeled bullets for facts/constraints; prose for opinions/narratives
-- Honest critique — flag when iteration stops producing improvements
 
 $ARGUMENTS

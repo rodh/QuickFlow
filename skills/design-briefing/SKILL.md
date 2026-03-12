@@ -13,6 +13,22 @@ The user will provide raw context: Jira tickets, Slack threads, PRD snippets, cu
 
 If design principles or patterns exist in the current directory (e.g., `design-system.md` or `patterns.md`), note any relevant existing patterns in your constraints section.
 
+## Triage
+
+Before synthesizing the brief, assess the raw input and surface what's missing.
+
+1. Read the raw input fully.
+2. Assess input quality:
+   - **Rich** (multiple sources, clear problem, named users, data): ask 1-2 targeted questions.
+   - **Moderate** (one source, some gaps): ask 2-3 targeted questions.
+   - **Thin** (a sentence or vague request): ask 3-4 targeted questions.
+3. Ask questions following the **question style** rules below:
+   > "What's the primary trigger for this work? (a) User complaint, (b) Metric decline, (c) New capability, (d) Other"
+4. Focus questions on: who's affected, what triggers the problem, what constraints exist, what success looks like. Not implementation.
+5. Once gaps are filled, proceed to synthesis.
+
+**"This Is Too Simple To Need Questions."** No it isn't. Even a one-line request has hidden assumptions worth surfacing — who's affected, what triggers it, what "done" looks like. Ask at least one question.
+
 ## What to produce
 
 **Problem in one sentence:** What is the user struggling with or unable to do?
@@ -33,23 +49,22 @@ If design principles or patterns exist in the current directory (e.g., `design-s
 - Use labeled bullets (`- **Label.** Detail`) for facts, constraints, and open questions. Use prose for the problem statement, persona context ("Who feels this"), and the first instinct — these need voice, not structure.
 - If the raw context is thin, say so explicitly and name what's missing rather than padding the brief with assumptions.
 - The "First instinct" should be opinionated enough to provoke a reaction — agreement or disagreement. If it's so safe that no one would push back, it's useless.
+- Flag when iteration stops producing improvements.
+
+**Question style** (applies to triage questions):
+- One question per message. Never batch.
+- Multiple choice preferred — reduces cognitive load, frames the decision space.
+- Open-ended only when the answer space is too wide for options.
+- Focus on purpose, constraints, success criteria. Not implementation details.
 
 After producing the brief, immediately save it to `brief.md` using the "Before saving" archive logic below. Don't wait for the user to say "save."
 
 ## Before saving
 
-Before overwriting `brief.md`, check if it already exists. If it does:
-
-1. Ensure `archive/` exists in the current directory
-2. Count existing versions in `archive/` (e.g., `brief-v*.md`) to determine the next version number
-3. Move the existing file to `archive/brief-v{n}.md`
-4. Write the new content to the original path
-
-## Communication style
-
-- Direct, no preamble, no filler
-- Labeled bullets for facts/constraints; prose for opinions/narratives
-- Honest critique — flag when iteration stops producing improvements
+Before overwriting `brief.md`, check if it already exists. If it does, archive it:
+1. Ensure `archive/` exists
+2. Move existing file to `archive/brief-v{n}.md` (where n = count of existing `brief-v*.md` in `archive/` + 1)
+3. Write new content to the original path
 
 ## Raw context
 

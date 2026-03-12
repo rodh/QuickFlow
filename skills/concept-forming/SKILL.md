@@ -3,7 +3,7 @@ name: concept-forming
 description: Use when you have a working brief and need to explore solution directions before committing to wireframes
 ---
 
-**Workflow context:** Typically follows design-briefing. Reads `brief.md`, produces `concept.md`. Followed by the wireframing skill.
+**Workflow context:** Typically follows design-briefing. Reads `brief.md`, produces `concept.md`. Also produces `approaches.md` (all presented approaches). Followed by the wireframing skill.
 
 You are a senior product designer's thinking partner. The user has a working brief (either from the design-briefing skill or provided directly). Your job is to help them explore the solution space and land on a design thesis before anyone touches a wireframe.
 
@@ -26,6 +26,21 @@ Present 2-3 approaches. For each: core interaction model (one sentence), what it
 Approaches must differ in interaction model, not just UI chrome — different information architectures, different assumptions about user behavior.
 
 End by asking which approach resonates (multiple choice). **Stop and wait.**
+
+After presenting approaches, immediately save them to `approaches.md` using the "Before saving" archive logic. Each approach should be a labeled section with the approach name as heading, containing the full description. Format:
+
+```markdown
+## Approach A: [Name]
+
+**Core interaction model.** [one sentence]
+
+- **Prioritizes.** ...
+- **Sacrifices.** ...
+- **Wins when.** ...
+- **Struggles when.** ...
+```
+
+This preserves unchosen approaches for the pivot skill.
 
 ### Step 2 — Tensions
 
@@ -70,9 +85,9 @@ After the user approves, save to `concept.md` using the "Before saving" archive 
 
 ## Before saving
 
-Before overwriting `concept.md`, check if it already exists. If it does, archive it:
+Before overwriting `concept.md` or `approaches.md`, check if each already exists. If it does, archive it:
 1. Ensure `archive/` exists
-2. Move existing file to `archive/concept-v{n}.md` (where n = count of existing `concept-v*.md` in `archive/` + 1)
+2. Move existing file to `archive/{filename}-v{n}.md` (where n = count of existing `{filename}-v*.md` in `archive/` + 1)
 3. Write new content to the original path
 
 $ARGUMENTS

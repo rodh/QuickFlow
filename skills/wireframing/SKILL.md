@@ -65,20 +65,6 @@ Stay in ASCII. If you think the structure is solid after 2-3 rounds, you can say
 
 **Limit: 3 rounds of structural changes.** If the wireframe isn't converging, the problem is usually upstream — ambiguity in the concept direction, not the layout. Say so directly.
 
-## Resolve action items
-
-After saving updated wireframes, check if `test-results.md` exists in the current directory. If it does:
-
-1. Read the action items list.
-2. For each action item addressed in this wireframe revision, update the checkbox in `test-results.md` from `- [ ]` to `- [x]` and append a version note:
-
-   Before: `- [ ] **AI-1.** Improve button contrast — low visibility on mobile`
-   After:  `- [x] **AI-1.** Improve button contrast — low visibility on mobile *(fixed in wireframes v3)*`
-
-3. Only mark items that were actually addressed. Leave unresolved items unchecked.
-4. Do NOT archive `test-results.md` before making these edits — this is an in-place status update, not a new version.
-5. If `test-results.md` doesn't contain action items in the expected format (`- [ ] **AI-{n}.**`), skip this step.
-
 ## Rules
 
 - Be direct. No preamble, no filler.

@@ -71,11 +71,17 @@ Cover first impressions, task attempts, and friction points within the per-scree
 
 After the personas list, produce the following sections in this order:
 
-**Action items:** A markdown task list of every "fix now" consensus issue, most impactful first. Lead with the highest-leverage fix. Format: `- [ ] **AI-{n}.** Brief description — why it matters`
+**Action items:** Every "fix now" consensus issue, most impactful first. Format: `- **AI-{n}.** Brief description — why it matters`
 
-Number action items sequentially (AI-1, AI-2, AI-3...). These IDs are stable references used by the wireframing skill when it resolves issues. This is the checklist the user acts on. Keep it scannable — one line per item, no paragraphs.
+Number action items sequentially (AI-1, AI-2, AI-3...). These IDs are stable references used across test iterations. Keep it scannable — one line per item, no paragraphs.
 
-**Consensus issues:** What problems did multiple personas hit? Numbered list, each with evidence. Below each issue, an indented sub-bullet with the verdict — ***Fix now*** or ***Defer*** — leading the line, followed by a short rationale. "Fix now" means it's worth addressing before moving to the next stage. "Defer" means it's real but acceptable — state what absorbs the risk (user behavior, future iteration, low frequency, scope boundary). If prior test results exist in the current directory, include previously-surfaced issues that the current wireframes have resolved, with strikethrough, so there's a record of what got fixed across iterations.
+**On subsequent tests** (when `test-results.md` already exists in the current directory): Read the prior test results and compare previous action items against the current wireframes. Instead of a single action items section, produce three sections in this order (omit any section that would be empty):
+
+- **Resolved from previous test:** Items from the prior action items that the current wireframes have addressed. Preserve original AI-{n} IDs.
+- **Remaining issues:** Items from the prior action items that are still present. Preserve original AI-{n} IDs. Re-state why each still matters.
+- **New findings:** Issues discovered in this test that weren't in the prior action items. Continue numbering from max prior ID + 1.
+
+**Consensus issues:** What problems did multiple personas hit? Numbered list, each with evidence. Below each issue, an indented sub-bullet with the verdict — ***Fix now*** or ***Defer*** — leading the line, followed by a short rationale. "Fix now" means it's worth addressing before moving to the next stage. "Defer" means it's real but acceptable — state what absorbs the risk (user behavior, future iteration, low frequency, scope boundary).
 
 **Highest-leverage fix:** One recommendation, bolded, with 2–4 bullets on what it accomplishes. End with a readiness assessment: where the design stands and a clear next step (iterate wireframes, move to prototype, run another targeted test, etc.).
 

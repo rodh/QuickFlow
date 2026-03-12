@@ -14,12 +14,14 @@ Generate wireframes using these conventions:
 **Structure:** Use box-drawing characters: ┌ ─ ┐ │ └ ┘ ├ ┤ ┬ ┴ ┼
 
 **Alignment rules:**
-- **Right-border lock:** Before drawing any box, decide its right-border column. Every line of that box must place its right `│` at exactly that column. Pad short lines with spaces — never shift the border. If `┌` starts at column 2 and `┐` is at column 40, then every `│` on the right side of that box must be at column 40, and `└` must end with `┘` at column 40.
-- **Column declaration:** For multi-panel or nested layouts, declare column positions in a comment before drawing: `// Columns: 0, 2, 40, 78, 80`. This anchors the layout math upfront and makes misalignment easy to catch.
-- **Column consistency:** After completing a wireframe, verify each vertical border forms a straight line. If any `│` shifts by even one column, redraw that section.
-- **Separator width:** Dashed separators (`─`) inside a box must span exactly from left `│` to right `│`, connecting with `├` on the left and `┤` on the right. Count characters to confirm the separator is the same width as the box's top `┌──...──┐`.
-- **Content wrapping:** If text would exceed box width, break at a word boundary. Never extend the box past its declared right-border column.
-- **Nesting:** Inner boxes must have their right border at least 2 columns inside the outer box's right border.
+1. **Build from a ruler line.** Start each box by typing its full top border (`┌──...──┐`) — this is the ruler. Count its dash characters (e.g., `┌` + 70×`─` + `┐` = 72 total). Every subsequent line hits that same total: `│` + content padded with spaces + `│` = 72. Separators use the same dash count: `├` + 70×`─` + `┤` = 72. Bottom border: `└` + 70×`─` + `┘` = 72. Same dash count on every border line — count them.
+2. **Content stays inside.** If text exceeds box width, wrap at word boundary. Never push the right border outward.
+3. **Nesting.** Inner boxes fit entirely within the outer box, with at least 1 space of padding on each side.
+
+**Spacing rules:**
+1. **Blank lines between sections.** Inside any box, separate distinct content groups with a padded blank line (`│` + spaces + `│`). Navigation, content area, and actions should always have blank lines between them.
+2. **No content on border lines.** Lines with `┌`, `└`, `├`, and separator `─` characters carry only border characters. Content starts on the next line.
+3. **Section labels get their own line.** Labels like "FILTERS", "RESULTS", or section headers sit on their own line with a blank line after them before content begins.
 
 **Interactive elements:**
 - Buttons: `[Button Label]`
@@ -34,14 +36,14 @@ Generate wireframes using these conventions:
 
 **Content:** Use realistic placeholder text, never lorem ipsum. If the product is for financial advisors, the placeholder should reference compliance reviews, client names, policy numbers — not generic filler.
 
-**Annotations:** Use `// comment` on the right side to explain design decisions.
+**Annotations:** Place `// comment` after the right border: `│ // comment`. Annotations sit outside the box — the right `│` stays at the ruler-line column regardless of annotation length.
 
 **Width:** Choose a width tier based on the content being wireframed:
-- **Compact (~60 chars):** Mobile screens, single components, modals, cards
-- **Standard (~80 chars):** Standard web pages, forms, single-column layouts
-- **Wide (up to 120 chars):** Dashboards, multi-column layouts, admin panels, data tables
+- **Narrow (~50 chars):** Mobile screens, single components, modals, cards
+- **Standard (~72 chars):** Web pages, forms, single-column layouts, simple dashboards
+- **Wide (~90 chars):** Dense dashboards, multi-column layouts, admin panels, data tables
 
-Read the concept direction and pick the best fit. Add a width annotation comment at the top of each wireframe: `// Width: Standard (~80 chars)`. The user can override by saying "use wide layout" or similar. Mixed flows can use different widths per screen (e.g., compact for a mobile modal, wide for a dashboard).
+Standard is the default. For multi-column layouts at wide tier, represent columns proportionally (e.g., sidebar + main + aside as ~20 + ~48 + ~20 chars). Add a width annotation comment at the top of each wireframe: `// Width: Standard (~72 chars)`. The user can override by requesting a specific tier. Mixed flows can use different widths per screen (e.g., narrow for a mobile modal, wide for a dashboard).
 
 **Naming:** Label each screen: `Screen 1: [Name]` with a one-line description of what the user is doing here.
 
@@ -54,7 +56,7 @@ After generating the first wireframes, immediately save them to `wireframes.md` 
 After the first pass, the user will direct changes. Common patterns:
 
 - "Move X above Y" → adjust hierarchy
-- "This is too dense" → break into steps or add whitespace
+- "This is too dense" → split into separate screens, promote sections to their own wireframe, or increase spacing between groups
 - "Show me the empty state" → generate that variation
 - "What happens when they click [element]?" → show the next screen in the flow
 - "Add a filter panel" → show expanded and collapsed states

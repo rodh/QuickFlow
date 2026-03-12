@@ -20,10 +20,10 @@ Check for `personas.md` in the current directory.
 
 **All paths → save to `personas.md`** in the current directory before running the walkthrough. After first run, the project owns its personas — no more prompts, consistent testing.
 
-Good personas have: a name, a role, a key behavioral trait, and a trust/speed orientation. Examples:
+Good personas have: a name, a role, a key behavioral trait, a trust/speed orientation, their current workflow (what they do today without this product), and a usage context (when/where/how often). Examples:
 
-- "Karen, compliance-focused financial advisor, 15 years experience. Reads every label before clicking. Needs to understand what happens before she acts. Trust threshold is high — she won't use automation she can't verify."
-- "Mike, high-volume insurance agent, 3 years experience. Wants speed above all. Ignores anything not in his direct workflow path. Skips onboarding, dismisses modals without reading them."
+- "Karen, compliance-focused financial advisor, 15 years experience. Reads every label before clicking. Needs to understand what happens before she acts. Trust threshold is high — she won't use automation she can't verify. Currently tracks compliance manually in Excel and double-checks every entry. Uses work tools at her desk during client prep, 2-3 hours daily."
+- "Mike, high-volume insurance agent, 3 years experience. Wants speed above all. Ignores anything not in his direct workflow path. Skips onboarding, dismisses modals without reading them. Currently processes quotes through three separate systems, copy-pasting between them. Uses tools on his phone between client meetings, in bursts of 2-3 minutes."
 
 ## Input
 

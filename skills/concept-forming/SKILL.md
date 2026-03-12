@@ -1,6 +1,6 @@
 ---
 name: concept-forming
-description: Explore the solution space and land on a concept direction before wireframing
+description: Use when you have a working brief and need to explore solution directions before committing to wireframes
 ---
 
 **Workflow context:** Typically follows design-briefing. Reads `brief.md`, produces `concept.md`. Followed by the wireframing skill.
@@ -11,18 +11,9 @@ This is a dialogue, not a report. Your first response sets up the exploration. T
 
 ## Before proposing approaches
 
-After reading the brief, check if it has an "Open questions" section. If it does, surface them one at a time (following question style rules below — multiple choice preferred, one per message). Once all open questions are resolved, assess whether framing questions are still needed. If the open question answers already reveal the user's priorities, skip framing questions and proceed to Step 1.
-
-If there are no open questions (or after resolving them), ask 1-2 framing questions before generating approaches. One question at a time, multiple choice preferred.
-
-Focus on:
-- What the user values most in this solution
-- What they'd sacrifice if forced to choose
-- What "good" looks like to them
+Resolve any open questions from the brief first (one at a time, multiple choice preferred). Then ask 1-2 framing questions if the user's priorities aren't already clear — what they value most, what they'd sacrifice, what "good" looks like. Skip if the brief already makes priorities obvious.
 
 > Example: "Which matters more here — (a) speed of task completion, (b) user confidence in correctness, (c) flexibility across edge cases?"
-
-If the brief already makes the user's priorities crystal clear, you can skip to approaches — but default to asking.
 
 ## How to run the dialogue
 
@@ -30,24 +21,17 @@ Present one section at a time. **Stop and wait for the user's reaction before mo
 
 ### Step 1 — Approaches
 
-Present 2-3 approaches. For each, describe:
-- The core interaction model in one sentence (e.g., "configure once and monitor", "review queue with bulk actions", "guided wizard that collapses after first run")
-- **Prioritizes:** labeled bullets (e.g., `- **Speed.** ...`, `- **Control.** ...`)
-- **Sacrifices:** labeled bullets
-- **Wins when:** labeled bullet describing a scenario where this approach clearly wins
-- **Struggles when:** labeled bullet describing a scenario where it struggles
+Present 2-3 approaches. For each: core interaction model (one sentence), what it prioritizes, what it sacrifices, when it wins, when it struggles. Use labeled bullets.
 
-Make these genuinely different — not the same idea with different UI chrome. If approach A is a table and approach B is also a table but with a sidebar, you've failed. Think in terms of different interaction models, different information architectures, different assumptions about user behavior.
+Approaches must differ in interaction model, not just UI chrome — different information architectures, different assumptions about user behavior.
 
-End by asking which approach resonates, using question style (multiple choice with each approach as an option). **Stop and wait.**
+End by asking which approach resonates (multiple choice). **Stop and wait.**
 
 ### Step 2 — Tensions
 
-Once an approach is chosen or narrowed, present the key design tensions for that direction. Not generic UX trade-offs — the ones that matter for this problem and these users. Use labeled bullets (`- **Tension name.** Explanation`). Examples: `- **Automation vs. oversight.** Compliance-sensitive users need to verify before acting`, `- **Density vs. scannability.** High-volume workflows demand both, but they're at odds`.
+Present the key design tensions for the chosen direction — not generic UX trade-offs, but the ones that matter for this problem and these users. Use labeled bullets (`- **Tension name.** Explanation`).
 
-Include **Autonomy level** as a tension if the design involves automation or system-initiated actions: where should this sit on the manual-to-agentic spectrum?
-
-Not every tension needs a question — some are informational. But if a tension requires a design decision, ask one question at a time. Move to the next tension only after the current one is resolved. **Stop and wait** after each question.
+Not every tension needs a question — some are informational. If a tension requires a design decision, ask one question at a time. **Stop and wait** after each question.
 
 ### Step 3 — Concept direction
 
@@ -62,34 +46,27 @@ After tensions are resolved, present the concept direction:
 
 ### Step 4 — Save
 
-After the user approves the concept direction, save to `concept.md` using the "Before saving" archive logic below. Also save after each subsequent iteration round — the archive logic will snapshot the previous version automatically.
+After the user approves, save to `concept.md` using the "Before saving" archive logic below. Also save after each subsequent iteration round.
 
 ## Handling pushback
-
-At any step, follow the user's lead:
 
 - If they challenge an approach: rethink it with their constraint, don't defend it.
 - If they narrow a tension: reframe the concept direction around their framing.
 - If they reject all approaches: ask what's wrong with them — the objection reveals the real constraint.
 - If they already have a direction: skip exploration and pressure-test their thesis. Poke holes. Name what they're not seeing.
-
-Aim for 2-3 exchanges. If you're still debating the concept after 3 rounds, the brief is missing something. Say so and name what needs resolution before this can move forward.
+- If the concept isn't converging after 3 rounds, the brief is probably missing something — name what needs resolution.
 
 ## Rules
 
 - Be direct. No preamble, no filler.
-- Use labeled bullets for trade-offs, priorities, sacrifices, and scenarios. Use prose for the concept direction statement ("We're going with...") and key bet reasoning — these are committed takes, not checklists.
-- The concept direction should be specific enough to wireframe against. "A clean, intuitive interface" is not a concept direction. "A batch-action queue where the advisor reviews exceptions only, with the system auto-resolving anything above 90% confidence" is.
+- Labeled bullets for trade-offs, priorities, sacrifices, and scenarios. Prose for the concept direction statement and key bet reasoning — committed takes, not checklists.
+- The concept direction must be specific enough to wireframe against. "A clean, intuitive interface" is not a concept direction. "A batch-action queue where the advisor reviews exceptions only, with the system auto-resolving anything above 90% confidence" is.
 - If the user's instinct is strong and clear, don't manufacture disagreement. Validate it, pressure-test it briefly, and help them move to wireframing.
-- Flag diminishing returns. If the concept is solid and the user is wordsmithing the thesis statement, tell them to move to wireframing.
-- **YAGNI.** If an approach includes functionality not implied by the brief, strip it. Add a **Trimmed** note at the end of the approach listing what was removed and why — the user can reinstate items if they disagree.
+- Flag diminishing returns. If the concept is solid and the user is wordsmithing, tell them to move to wireframing.
+- **YAGNI.** If an approach includes functionality not implied by the brief, strip it. Add a **Trimmed** note listing what was removed and why.
 - **Hard gate before wireframing.** Do not suggest moving to wireframing until the user explicitly approves the concept direction.
 
-**Question style** (applies to open questions, framing questions, approach selection, and iteration):
-- One question per message. Never batch.
-- Multiple choice preferred — reduces cognitive load, frames the decision space.
-- Open-ended only when the answer space is too wide for options.
-- Focus on purpose, constraints, success criteria. Not implementation details.
+**Question style:** One question per message. Multiple choice preferred. Open-ended only when the answer space is too wide for options. Focus on purpose, constraints, success criteria — not implementation details.
 
 ## Before saving
 

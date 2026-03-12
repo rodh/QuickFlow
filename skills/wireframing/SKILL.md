@@ -1,49 +1,21 @@
 ---
 name: wireframing
-description: Generate ASCII wireframes from a concept direction and iterate until the structure is right
+description: Use when a concept direction is agreed and you need to make it concrete as structural layouts for review
 ---
 
 **Workflow context:** Typically follows concept-forming. Reads `concept.md`, produces `wireframes.md`. Followed by the user-testing skill.
 
 You are a senior product designer's layout partner. The user has a concept direction (either from the concept-forming skill or stated directly). Your job is to translate that concept into structural wireframes using ASCII, then iterate until the layout is right.
 
-## Phase 1: ASCII Wireframes
-
-Generate wireframes using these conventions:
+## ASCII Wireframes
 
 **Structure:** Use box-drawing characters: ┌ ─ ┐ │ └ ┘ ├ ┤ ┬ ┴ ┼
 
-**Alignment rules:**
-1. **Build from a ruler line.** Start each box by typing its full top border (`┌──...──┐`) — this is the ruler. Count its dash characters (e.g., `┌` + 70×`─` + `┐` = 72 total). Every subsequent line hits that same total: `│` + content padded with spaces + `│` = 72. Separators use the same dash count: `├` + 70×`─` + `┤` = 72. Bottom border: `└` + 70×`─` + `┘` = 72. Same dash count on every border line — count them.
-2. **Content stays inside.** If text exceeds box width, wrap at word boundary. Never push the right border outward.
-3. **Nesting.** Inner boxes fit entirely within the outer box, with at least 1 space of padding on each side.
+Follow conventions in `wireframe-conventions.md` for alignment, spacing, interactive elements, and width tiers.
 
-**Spacing rules:**
-1. **Blank lines between sections.** Inside any box, separate distinct content groups with a padded blank line (`│` + spaces + `│`). Navigation, content area, and actions should always have blank lines between them.
-2. **No content on border lines.** Lines with `┌`, `└`, `├`, and separator `─` characters carry only border characters. Content starts on the next line.
-3. **Section labels get their own line.** Labels like "FILTERS", "RESULTS", or section headers sit on their own line with a blank line after them before content begins.
-
-**Interactive elements:**
-- Buttons: `[Button Label]`
-- Primary buttons: `[* Button Label *]`
-- Text inputs: `[___placeholder text___]`
-- Dropdowns: `(dropdown label v)`
-- Radio buttons: `(o) Selected  ( ) Unselected`
-- Checkboxes: `[x] Checked  [ ] Unchecked`
-- Toggle: `[ON|off]` or `[on|OFF]`
-- Tabs: `[ Active ] [ Inactive ] [ Inactive ]`
-- Links: `<Link Text>`
-
-**Content:** Use realistic placeholder text, never lorem ipsum. If the product is for financial advisors, the placeholder should reference compliance reviews, client names, policy numbers — not generic filler.
+**Content:** Use realistic placeholder text, never lorem ipsum. Placeholders should reference the actual domain — compliance reviews, client names, policy numbers — not generic filler.
 
 **Annotations:** Place `// comment` after the right border: `│ // comment`. Annotations sit outside the box — the right `│` stays at the ruler-line column regardless of annotation length.
-
-**Width:** Choose a width tier based on the content being wireframed:
-- **Narrow (~50 chars):** Mobile screens, single components, modals, cards
-- **Standard (~72 chars):** Web pages, forms, single-column layouts, simple dashboards
-- **Wide (~90 chars):** Dense dashboards, multi-column layouts, admin panels, data tables
-
-Standard is the default. For multi-column layouts at wide tier, represent columns proportionally (e.g., sidebar + main + aside as ~20 + ~48 + ~20 chars). Add a width annotation comment at the top of each wireframe: `// Width: Standard (~72 chars)`. The user can override by requesting a specific tier. Mixed flows can use different widths per screen (e.g., narrow for a mobile modal, wide for a dashboard).
 
 **Naming:** Label each screen: `Screen 1: [Name]` with a one-line description of what the user is doing here.
 

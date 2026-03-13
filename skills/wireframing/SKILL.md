@@ -54,5 +54,7 @@ Before overwriting `wireframes.md`, check if it already exists. If it does, arch
 1. Ensure `archive/` exists
 2. Move existing file to `archive/wireframes-v{n}.md` (where n = count of existing `wireframes-v*.md` in `archive/` + 1)
 3. Write new content to the original path
+4. Start the file with `# Wireframes v{N}: [Concept Name]` where N = archive count + 1 (if no archives, N = 1). This heading is mandatory — never omit it.
+5. If this version addresses findings from user testing, add `**Addressing:** test-results v{M}` on the line after the heading (where M = the test-results version that prompted changes). Omit this line for the first wireframe pass.
 
 $ARGUMENTS

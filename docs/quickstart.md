@@ -13,16 +13,16 @@ Pick the scenario that matches your task. Follow the skills in order. Skip what 
 ```
 mkdir my-app && cd my-app
 
-design-briefing
+/design-briefing
 I want to build a personal content saving app. I keep finding useful stuff
 on Reddit, YouTube, LinkedIn — but I never go back to it. I want something
 that captures content fast, organizes it with AI, and helps me use it later.
 
-concept-forming
+/concept-forming
 
-wireframing home screen, save flow, topic briefing
+/wireframing home screen, save flow, topic briefing
 
-user-testing
+/user-testing
 ```
 
 ---
@@ -38,12 +38,12 @@ Skip concept-forming — the problem and solution space are narrow enough to go 
 ```
 mkdir STASH-fix-autodismiss && cd STASH-fix-autodismiss
 
-design-briefing
+/design-briefing
 Ticket STASH-42: Save confirmation toast auto-dismisses after 2 seconds.
 Users can't read the full message before it disappears. Increase dismiss
 timer and make the undo target clearly tappable.
 
-wireframing save confirmation toast with extended timer and prominent undo action
+/wireframing save confirmation toast with extended timer and prominent undo action
 ```
 
 ### Bug fix (behavioral/logic)

@@ -1,5 +1,5 @@
 ---
-name: quickflow-status
+name: checkpoint
 description: Check design status in the current directory, or create a named subdirectory for a new design.
 ---
 
@@ -49,7 +49,7 @@ If both `test-results.md` and `wireframes.md` exist, check the version stamp at 
 
 After the table, print a line listing what's **missing** — name each missing artifact file explicitly.
 
-If session notes exist in `sessions/`, read the most recent one. Include any open threads or stage checkpoint from the quickflow-recap.
+If session notes exist in `sessions/`, read the most recent one. Include any open threads or stage checkpoint from the recap.
 
 Then print a line summarizing the **current state** — what stage the design is at and any notable context.
 
@@ -57,7 +57,7 @@ Then print a `> **Next up:**` blockquote recommending the logical next step base
 - **New** → "Start with design-briefing to create a brief."
 - **Has brief** → "Move to concept-forming to explore approaches."
 - **Has concept** → "Move to wireframing to make it concrete."
-- **Has wireframes** → "Move to user-testing to validate the design."
+- **Has wireframes** → "Move to simulated-user-testing to validate the design."
 - **Has test results** → Read the test results and recommend based on what they say: another wireframe iteration if unresolved issues remain, or prototyping if the design tested well.
 
 Present the user with a "Where do you want to pick up?" question with options based on what exists.
@@ -70,7 +70,7 @@ Present the user with options to choose from, showing up to 4 of the most recent
 
 **If no artifacts found anywhere:**
 
-Tell the user: "No design artifacts found. Run the design-briefing skill to start a new design here, or run quickflow-status with a name to create a subdirectory." Then stop.
+Tell the user: "No design artifacts found. Run the design-briefing skill to start a new design here, or run checkpoint with a name to create a subdirectory." Then stop.
 
 ---
 
@@ -88,8 +88,8 @@ When saving outputs, use these names:
 - design-briefing → `brief.md`
 - concept-forming → `concept.md`
 - wireframing → `wireframes.md`
-- user-testing → `test-results.md` and `personas.md`
-- quickflow-recap → `sessions/YYYY-MM-DD-HHMM.md`
+- simulated-user-testing → `test-results.md` and `personas.md`
+- recap → `sessions/YYYY-MM-DD-HHMM.md`
 - Artifact snapshots → `archive/{artifact}-v{n}.md`
 
 ## Rules

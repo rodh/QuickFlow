@@ -1,8 +1,8 @@
-# QuickFlow
+# Forma
 
 **A structured design practice for AI coding agents.**
 
-QuickFlow is a set of skills that give your coding agent a design workflow — shape ideas, wireframe solutions, test with simulated users, and iterate on what you've built. Works with Claude Code, Codex, and any AI coding agent that reads markdown.
+Forma is a set of skills that give your coding agent a design workflow — shape ideas, wireframe solutions, test with simulated users, and iterate on what you've built. Works with Claude Code, Codex, and any AI coding agent that reads markdown.
 
 It runs as an opinionated workflow: each stage produces a persistent artifact that survives across sessions and engages in structured dialogue rather than one-shot generation. Run the stages in order, or jump to the one you need — the workflow adapts either way. You pick up any design exactly where you left off.
 
@@ -11,7 +11,7 @@ It runs as an opinionated workflow: each stage produces a persistent artifact th
 > **Platform syntax:** Claude Code uses `/skill-name`, Codex CLI uses `$skill-name`. This example uses `/` — swap for your platform's prefix.
 
 ```
-> /quickflow-status STASH-team-notifications
+> /checkpoint STASH-team-notifications
 
   No design named "STASH-team-notifications" found. Create it? (y/n)
 
@@ -89,7 +89,7 @@ It runs as an opinionated workflow: each stage produces a persistent artifact th
 
   ✓ Wireframes saved → wireframes.md
 
-> /user-testing
+> /simulated-user-testing
 
   3 personas walked through the design independently.
   Consensus issue: mute toggle is discoverable but "mute duration" isn't —
@@ -102,21 +102,21 @@ It runs as an opinionated workflow: each stage produces a persistent artifact th
 ## Try it
 
 ```
-git clone https://github.com/rodh/QuickFlow.git
+git clone https://github.com/rodh/Forma.git
 ```
 
 **Claude Code:**
 
 ```
 cd your-project
-quickflow-status my-first-design
+checkpoint my-first-design
 ```
 
 **Codex CLI:**
 
 ```
 cd your-project
-$quickflow-status my-first-design
+$checkpoint my-first-design
 ```
 
 ## Skills
@@ -130,15 +130,15 @@ $quickflow-status my-first-design
 | design-briefing | Distill raw context into a working brief through dialogue | `brief.md` |
 | concept-forming | Explore the solution space, land on a concept direction | `concept.md`, `approaches.md` |
 | wireframing | Generate ASCII wireframes from the concept | `wireframes.md` |
-| user-testing | AI persona usability walkthroughs | `test-results.md`, `personas.md` |
+| simulated-user-testing | AI persona usability walkthroughs | `test-results.md`, `personas.md` |
 
 ### Iteration and session management
 
 | Skill | What it does | Output |
 |-------|-------------|--------|
-| quickflow-status | Check status, resume, or create a design directory | — |
+| checkpoint | Check status, resume, or create a design directory | — |
 | concept-branching | Branch into an alternative design direction | sibling directory with copied artifacts |
-| quickflow-recap | Capture session decisions and open threads | `sessions/YYYY-MM-DD-HHMM.md` |
+| recap | Capture session decisions and open threads | `sessions/YYYY-MM-DD-HHMM.md` |
 
 ## Learn more
 

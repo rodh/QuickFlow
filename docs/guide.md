@@ -1,6 +1,6 @@
-# QuickFlow Guide
+# Forma Guide
 
-QuickFlow is a design toolkit for rapid iteration — a set of skills that give your coding agent a design practice. It optimizes for decisions, not pixels — each stage forces a commitment before the next one begins.
+Forma is a design toolkit for rapid iteration — a set of skills that give your coding agent a design practice. It optimizes for decisions, not pixels — each stage forces a commitment before the next one begins.
 
 For usage patterns and examples, see the [Quick Start](quickstart.md).
 
@@ -47,7 +47,7 @@ Skills don't generate output in one shot. Most open a conversation — presentin
 
 **Three interaction modes:**
 
-**Absorb.** Some skills take input and produce output without back-and-forth. User testing runs persona walkthroughs against your wireframes. Concept branching copies and diverges. Quickflow recap captures session thinking. Quickflow status reads artifacts and orients you. You give the agent material, it processes it, done. These skills are transactional — the quality of the output depends on the quality of the input, not on mid-process conversation.
+**Absorb.** Some skills take input and produce output without back-and-forth. User testing runs persona walkthroughs against your wireframes. Concept branching copies and diverges. Recap captures session thinking. Checkpoint reads artifacts and orients you. You give the agent material, it processes it, done. These skills are transactional — the quality of the output depends on the quality of the input, not on mid-process conversation.
 
 **Dialogue.** Design-briefing and concept-forming open with structured engagement and expect you to react. Design-briefing asks clarifying questions one at a time before drafting the brief — probing gaps, testing assumptions, and surfacing requirements you hadn't articulated. Concept-forming presents 2-4 concept directions with explicit trade-offs and expects you to push back or choose. The conversation typically converges in 2-3 exchanges. Two responses matter here:
 - **Challenge an option** — the agent rethinks rather than defends. If you say "approach B feels too complex," it doesn't argue for B — it revisits what made B seem necessary and looks for simpler alternatives.
@@ -63,9 +63,9 @@ Skills don't generate output in one shot. Most open a conversation — presentin
 
 ## Session continuity
 
-The system reconstructs context from artifacts, not conversation history. When you run quickflow-status in a directory with existing artifacts, it reads every artifact, detects the current stage, and orients you.
+The system reconstructs context from artifacts, not conversation history. When you run checkpoint in a directory with existing artifacts, it reads every artifact, detects the current stage, and orients you.
 
-Artifacts carry the decisions. Session recaps (quickflow-recap) carry the thinking between artifacts. Auto-archive preserves iteration history. Resumption isn't a special feature — it's a side effect of how the system already works.
+Artifacts carry the decisions. Session recaps (recap) carry the thinking between artifacts. Auto-archive preserves iteration history. Resumption isn't a special feature — it's a side effect of how the system already works.
 
 ---
 

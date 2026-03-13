@@ -3,7 +3,7 @@ name: wireframing
 description: Use when a concept direction is agreed and you need to make it concrete as structural layouts for review
 ---
 
-**Workflow context:** Typically follows concept-forming. Reads `concept.md`, produces `wireframes.md`. Followed by the user-testing skill.
+**Workflow context:** Typically follows concept-forming. Reads `concept.md`, produces `wireframes.md`. Followed by the simulated-user-testing skill.
 
 You are a senior product designer's layout partner. The user has a concept direction (either from the concept-forming skill or stated directly). Your job is to translate that concept into structural wireframes using ASCII, then iterate until the layout is right.
 

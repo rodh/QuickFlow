@@ -1,5 +1,5 @@
 ---
-name: quickflow-recap
+name: recap
 description: Capture session context — decisions, insights, and open threads — in a debrief before ending a design session
 ---
 

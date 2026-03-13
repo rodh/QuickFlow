@@ -1,66 +1,103 @@
 # QuickFlow
 
-A structured design practice for AI coding agents.
+**A structured design practice for AI coding agents.**
 
-QuickFlow gives your AI coding agent a design workflow. You describe what you want to build, and a series of skills walks you through briefing, concept exploration, wireframing, and usability testing — all in structured dialogue, all saved to markdown files that persist between sessions. Pick up where you left off, refine what exists, or branch into a new direction.
+QuickFlow is a set of skills that give your coding agent a design workflow — shape ideas, wireframe solutions, test with simulated users, and iterate on what you've built. Works with Claude Code, Codex, and any AI coding agent that reads markdown.
 
-Works with Claude Code, Codex, and any AI coding agent that reads markdown.
+It runs as an opinionated workflow: each stage produces a persistent artifact that survives across sessions and engages in structured dialogue rather than one-shot generation. Run the stages in order, or jump to the one you need — the workflow adapts either way. You pick up any design exactly where you left off.
 
 ## What a session looks like
 
-> **Platform syntax:** Claude Code uses `/skill-name`, Codex CLI uses `$skill-name`. Examples below use plain skill names — add your platform's prefix.
-
-You're building a team notifications feature. Start a design directory:
+> **Platform syntax:** Claude Code uses `/skill-name`, Codex CLI uses `$skill-name`. This example uses `/` — swap for your platform's prefix.
 
 ```
-quickflow-status STASH-team-notifications
+> /quickflow-status STASH-team-notifications
+
+  No design named "STASH-team-notifications" found. Create it? (y/n)
+
+> y
+
+  Created STASH-team-notifications/. Ready for design-briefing.
+
+> /design-briefing
+  [STASH-92.md]  [topics-screen-current.png]
+
+  Teams need to be notified when a teammate saves content to a shared
+  topic. Currently saves are silent — teammates only discover new content
+  when they open the topic. Want push + in-app notifications with controls
+  to avoid noise.
+
+  agent: Reading ticket and screenshot...
+
+  Before drafting — a few things to clarify:
+  - The ticket says "controls to avoid noise" but doesn't specify scope.
+    Per-topic mute? Global quiet hours? Both?
+  - Should all shared topics notify by default, or only ones the user
+    explicitly follows?
+
+> Per-topic mute only — keep it simple. All shared topics notify by default,
+  following is opt-out not opt-in.
+
+  Clear.
+
+  ✓ Brief saved → brief.md
+  Problem: shared saves are invisible. Users miss teammate contributions.
+  Key constraint: notification fatigue — per-topic mute, not global.
+  Open question: notification grouping when a teammate saves multiple items quickly.
+
+> /concept-forming
+
+  Three directions:
+
+  A. Activity feed — passive. A "what's new" tab per shared topic.
+     Prioritizes: low interruption. Sacrifices: timeliness.
+  B. Smart digest — batched. Daily/weekly summary of shared topic activity.
+     Prioritizes: noise control. Sacrifices: real-time awareness.
+  C. Notify-on-save — active. Push + in-app per save, with per-topic mute.
+     Prioritizes: immediacy. Sacrifices: quiet if team is active.
+
+  Which direction, or push back?
+
+> C, but I want the mute controls to be really prominent — not buried in settings
+
+  ✓ Concept saved → concept.md
+  Direction: notify-on-save with inline mute controls.
+  Key bet: users will manage noise themselves if controls are within reach.
+
+> /wireframing notification banner, topic screen with mute toggle, notification center
+
+  ┌──────────────────────────────────┐
+  │ Topics                       [≡] │
+  │ ┌──────────────────────────────┐ │
+  │ │ Sarah saved "Q3 OKRs"        │ │
+  │ │ to Design Systems       [x]  │ │
+  │ │  [View]  [Mute topic ▾]      │ │
+  │ └──────────────────────────────┘ │
+  │  ★ Design Systems            (3) │
+  │    Product Research          (1) │
+  │    Brand Guidelines              │
+  └──────────────────────────────────┘
+
+  Mute toggle is on the banner itself — no settings detour.
+  Notification center and other screens also drafted.
+
+  Banner should push the list down, not overlay it.
+
+> Right — update to push layout instead of overlay
+
+  [revised wireframes with push layout]
+
+  ✓ Wireframes saved → wireframes.md
+
+> /user-testing
+
+  3 personas walked through the design independently.
+  Consensus issue: mute toggle is discoverable but "mute duration" isn't —
+  all 3 personas expected a way to mute temporarily, not just on/off.
+  Recommendation: add a duration picker (1h, 1d, forever) to the mute action.
+
+  ✓ Test results saved → test-results.md
 ```
-
-The agent creates `STASH-team-notifications/` and drops you in. Now brief it:
-
-```
-design-briefing
-We need team notifications for our project management app. Users miss
-updates on tasks they're assigned to or watching. Need real-time alerts,
-a notification center, and digest options for people who don't want
-constant interruptions.
-```
-
-The agent asks clarifying questions — what platforms, how many users, any existing notification patterns? You go back and forth until the brief is solid. It saves `brief.md`.
-
-Now explore the concept space:
-
-```
-concept-forming
-```
-
-The agent reads your brief, generates multiple approaches, surfaces tensions between them, and works with you to land on a direction. It saves `concept.md`.
-
-Wireframe the key screens:
-
-```
-wireframing notification center, alert toast, digest settings
-```
-
-ASCII wireframes for each screen, saved to `wireframes.md`. The agent critiques its own layouts and asks if anything needs revision.
-
-Test it with AI personas:
-
-```
-user-testing
-```
-
-The agent generates realistic user personas, then walks each one through the wireframes — finding usability issues, confusing flows, and missed edge cases. Results go to `test-results.md` and `personas.md`.
-
-Something off? Go back to any stage. The old version gets archived automatically before the new one overwrites it.
-
-Done for the day? Capture where you left off:
-
-```
-quickflow-recap
-```
-
-Next session, run `quickflow-status` in the same directory — it reads your artifacts, shows what's done, surfaces open threads, and asks where you want to pick up.
 
 ## Try it
 

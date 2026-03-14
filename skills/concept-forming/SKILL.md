@@ -29,7 +29,23 @@ Present 2-3 approaches. For each: core interaction model (one sentence), what it
 
 Approaches must differ in interaction model, not just UI chrome — different information architectures, different assumptions about user behavior.
 
-End by asking which approach resonates (multiple choice). **Stop and wait.**
+After saving approaches, present the choice point:
+
+> How do you want to proceed?
+> - **Rapid-explore** — auto-develop all approaches to wireframe depth, then compare and combine (recommended)
+> - **Pick [Approach Name]** — develop one through dialogue
+> - **Explore [Approach Name]** — dig deeper into one before committing
+> - **Branch** — create parallel design pipelines
+
+**Stop and wait.**
+
+If the user says "go," "proceed," or anything non-specific without naming an approach, default to rapid-explore — tell them to invoke the rapid-exploring skill.
+
+If the user picks an approach by name, continue to Step 2 (Tensions) as normal.
+
+If the user says "explore [name]," follow the Exploration mode section below.
+
+If the user says "branch," tell them to invoke the concept-branching skill.
 
 After presenting approaches, immediately save them to `approaches.md` using the "Before saving" archive logic. Each approach should be a labeled section with the approach name as heading, containing the full description. Format:
 

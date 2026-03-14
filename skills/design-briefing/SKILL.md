@@ -19,8 +19,9 @@ Before synthesizing the brief, assess the raw input and surface what's missing.
 
 1. Read the raw input fully.
 2. Assess input quality and ask targeted questions proportional to gaps — more questions for thinner input, fewer for rich multi-source input. Always ask at least one.
-3. Ask questions following the **question style** rules below:
-   > "What's the primary trigger for this work? (a) User complaint, (b) Metric decline, (c) New capability, (d) Other"
+3. Ask questions using the `AskUserQuestion` tool (see **Asking questions** below):
+   > Question: "What's the primary trigger for this work?"
+   > Options: User complaint, Metric decline, New capability
 4. Focus questions on: who's affected, what triggers the problem, what constraints exist, what success looks like. Not implementation.
 5. Once gaps are filled, proceed to synthesis.
 
@@ -46,7 +47,7 @@ Before synthesizing the brief, assess the raw input and surface what's missing.
 - Labeled bullets (`- **Label.** Detail`) for facts, constraints, and open questions. Prose for the problem statement, persona context ("Who feels this"), and the first instinct — these need voice, not structure.
 - If the raw context is thin, say so explicitly and name what's missing rather than padding with assumptions.
 - The "First instinct" should be opinionated enough to provoke a reaction. If it's so safe that no one would push back, it's useless.
-**Question style:** One question per message. Multiple choice preferred. Open-ended only when the answer space is too wide for options. Focus on purpose, constraints, success criteria — not implementation details.
+**Asking questions:** Use the `AskUserQuestion` tool for all questions — present options with clear labels and short descriptions. One question per tool call. Open-ended only when the answer space is too wide for options. Focus on purpose, constraints, success criteria — not implementation details. If `AskUserQuestion` is unavailable, fall back to text with lettered options.
 
 After producing the brief, immediately save it to `brief.md`, overwriting in place.
 

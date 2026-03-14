@@ -17,7 +17,7 @@ Check for `brief.md` in the current directory. If found, read it and use it as t
 
 Resolve any open questions from the brief first (one at a time, multiple choice preferred). Then ask 1-2 framing questions if the user's priorities aren't already clear — what they value most, what they'd sacrifice, what "good" looks like. Skip if the brief already makes priorities obvious.
 
-> Example: "Which matters more here — (a) speed of task completion, (b) user confidence in correctness, (c) flexibility across edge cases?"
+> Example using AskUserQuestion — Question: "Which matters more here?" Options: Speed of task completion, User confidence in correctness, Flexibility across edge cases
 
 ## How to run the dialogue
 
@@ -31,13 +31,12 @@ Approaches must differ in interaction model, not just UI chrome — different in
 
 Immediately save approaches to `approaches.md`, overwriting in place. Each approach should be a labeled section with the approach name as heading, containing: core interaction model, what it prioritizes, sacrifices, when it wins, and when it struggles.
 
-Then present the choice point:
+Then present the choice point using the `AskUserQuestion` tool with these options:
 
-> How do you want to proceed?
-> - **Rapid-explore** — auto-develop all approaches to wireframe depth, then compare and combine (recommended)
-> - **Pick [Approach Name]** — develop one through dialogue
-> - **Explore [Approach Name]** — dig deeper into one before committing
-> - **Branch** — create parallel design pipelines
+- **Rapid-explore (Recommended)** — Auto-develop all approaches to wireframe depth, then compare and combine
+- **Pick [Approach Name]** — Develop one approach through dialogue
+- **Explore [Approach Name]** — Dig deeper into one approach before committing
+- **Branch** — Create parallel design pipelines
 
 **Stop and wait.**
 
@@ -101,6 +100,6 @@ After the user approves, save to `concept.md`, overwriting in place. Also save a
 - **YAGNI.** If an approach includes functionality not implied by the brief, strip it. Add a **Trimmed** note listing what was removed and why.
 - **Hard gate before wireframing.** Do not suggest moving to wireframing until the user explicitly approves the concept direction.
 
-**Question style:** One question per message. Multiple choice preferred. Open-ended only when the answer space is too wide for options. Focus on purpose, constraints, success criteria — not implementation details.
+**Asking questions:** Use the `AskUserQuestion` tool for all questions — present options with clear labels and short descriptions. One question per tool call. Open-ended only when the answer space is too wide for options. Focus on purpose, constraints, success criteria — not implementation details. If `AskUserQuestion` is unavailable, fall back to text with lettered options.
 
 $ARGUMENTS

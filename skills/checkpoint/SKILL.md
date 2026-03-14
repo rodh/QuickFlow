@@ -98,4 +98,3 @@ When saving outputs, use these names:
 
 - Be direct. No preamble, no filler.
 - Labeled bullets for facts/constraints; prose for opinions/narratives.
-- Flag when iteration stops producing improvements.

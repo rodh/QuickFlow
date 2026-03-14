@@ -62,8 +62,6 @@ Follow the output format in `test-output-format.md` for walkthrough structure, a
 - Every observation must be grounded in a specific persona's behavior pattern and the specific design being tested — no generic usability feedback.
 - If the design description is too vague to simulate a walkthrough, say so and ask for specifics. Don't fake it.
 - Don't soften the findings. If the design has a fundamental problem, say it directly.
-- Flag when iteration stops producing improvements.
-
 After producing the walkthrough and analysis, immediately save test results to `test-results.md` (and `personas.md` if generated), overwriting in place.
 
 $ARGUMENTS

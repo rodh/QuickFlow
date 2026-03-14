@@ -56,6 +56,5 @@ Stay in ASCII. If you think the structure is solid after 2-3 rounds, you can say
 - If the concept direction is unclear, ask for clarification before wireframing — don't guess.
 - If the user asks for something that contradicts the concept direction from the concept-forming skill, flag the contradiction.
 - Labeled bullets for facts/constraints; prose for opinions/narratives.
-- Flag when iteration stops producing improvements.
 
 $ARGUMENTS

@@ -29,18 +29,7 @@ Present 2-3 approaches. For each: core interaction model (one sentence), what it
 
 Approaches must differ in interaction model, not just UI chrome — different information architectures, different assumptions about user behavior.
 
-Immediately save approaches to `approaches.md`, overwriting in place. Each approach should be a labeled section with the approach name as heading, containing the full description. Format:
-
-```markdown
-## Approach A: [Name]
-
-**Core interaction model.** [one sentence]
-
-- **Prioritizes.** ...
-- **Sacrifices.** ...
-- **Wins when.** ...
-- **Struggles when.** ...
-```
+Immediately save approaches to `approaches.md`, overwriting in place. Each approach should be a labeled section with the approach name as heading, containing: core interaction model, what it prioritizes, sacrifices, when it wins, and when it struggles.
 
 Then present the choice point:
 
@@ -92,7 +81,7 @@ After tensions are resolved, present the concept direction:
 
 ### Step 4 — Save
 
-After the user approves, save to `concept.md` using the "Before saving" archive logic below. Also save after each subsequent iteration round.
+After the user approves, save to `concept.md`, overwriting in place. Also save after each subsequent iteration round.
 
 ## Handling pushback
 

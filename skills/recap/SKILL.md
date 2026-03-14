@@ -51,6 +51,5 @@ Print a short summary of what was captured — how many decisions, insights, and
 - Capture what's not already in the artifacts. Don't repeat what's already saved — the point is to capture the delta.
 - If the session was light (just a quick check-in or minor edit), say so. Don't manufacture substance. A short session note is better than a padded one.
 - If the user provides additional context via `$ARGUMENTS`, incorporate it into the session notes — it may flag something you'd otherwise miss.
-- Flag when iteration stops producing improvements.
 
 $ARGUMENTS

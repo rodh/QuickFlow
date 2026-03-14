@@ -48,32 +48,7 @@ Full ASCII wireframes following `wireframe-conventions.md`. These must be produc
 
 Create the `exploration/` directory if needed. Save a single file per approach: `exploration/{approach-slug}.md`
 
-Format:
-
-```markdown
-# [Approach Name]
-
-## Auto-resolved tensions
-
-### [Tension 1 name]
-**Decided:** [what was chosen]
-**Alternatives:** [what else was considered]
-**Reasoning:** [why this fits the approach's priorities]
-
-### [Tension 2 name]
-...
-
-## Concept direction
-
-- **Core interaction.** [one sentence]
-- **Prioritizes.** [what this approach optimizes for]
-- **Key bet.** [the assumption about user behavior]
-- **Biggest risk.** [what could make this wrong]
-
-## Wireframes
-
-[Full ASCII wireframes]
-```
+Structure each file with three sections: **Auto-resolved tensions** (with decided/alternatives/reasoning per tension), **Concept direction** (core interaction, prioritizes, key bet, biggest risk), and **Wireframes**.
 
 ## Comparison and combination
 

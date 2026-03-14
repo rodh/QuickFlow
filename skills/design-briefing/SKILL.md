@@ -30,7 +30,7 @@ Before synthesizing the brief, assess the raw input and surface what's missing.
 
 **Problem in one sentence:** What is the user struggling with or unable to do?
 
-**Who feels this:** Which user segment(s) and what's their context when they hit this? Be specific about the moment — not "financial advisors" but "advisors mid-conversation with a client who need to pull up compliance status without leaving the chat."
+**Who feels this:** Which user segment(s) and what's their context when they hit this? Be specific about the moment, not the role.
 
 **Known constraints:** Technical limitations, regulatory requirements, existing patterns we must respect, timeline pressure. Pull directly from the raw context. Use labeled bullets (`- **Timeline.** ...`, `- **Technical.** ...`).
 
@@ -46,8 +46,6 @@ Before synthesizing the brief, assess the raw input and surface what's missing.
 - Labeled bullets (`- **Label.** Detail`) for facts, constraints, and open questions. Prose for the problem statement, persona context ("Who feels this"), and the first instinct — these need voice, not structure.
 - If the raw context is thin, say so explicitly and name what's missing rather than padding with assumptions.
 - The "First instinct" should be opinionated enough to provoke a reaction. If it's so safe that no one would push back, it's useless.
-- Flag when iteration stops producing improvements.
-
 **Question style:** One question per message. Multiple choice preferred. Open-ended only when the answer space is too wide for options. Focus on purpose, constraints, success criteria — not implementation details.
 
 After producing the brief, immediately save it to `brief.md`, overwriting in place.

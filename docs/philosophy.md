@@ -70,8 +70,10 @@ The system encodes a specific decision framework for when to tweak, when to expl
 
 **Explore** when you want to develop multiple approaches at concept depth before committing to one. After concept-forming presents its approaches, you can say "explore [Approach Name]" to dig deeper — resolving tensions, sketching rough wireframes, naming behavior risks — without committing. Explorations save to `exploration/{approach-slug}.md`. When you're ready, commit to one and continue the normal flow. This fills the gap between "pick one immediately" and "branch into full parallel pipelines."
 
+**Rapid-explore** when you want to see all approaches materialized to wireframe depth before committing. After concept-forming presents approaches, invoke rapid-exploring to auto-develop all directions — resolving tensions autonomously, generating wireframes for each, then combining the best elements. Fastest path from "multiple ideas" to "one concrete direction" at the cost of human nuance in tension resolution.
+
 **Branch** when you need a structurally different approach to the same problem. concept-branching creates a new design directory that shares the parent's brief but diverges from concept onward. Both versions persist independently. Use this when you want to carry two (or more) directions through wireframing and testing in parallel.
 
-The key signals: if you're tweaking within a stage, refine. If you want to compare approaches before committing, explore. If you're crossing stages or making structural revisions, major version. If you need full parallel pipelines through wireframing and testing, branch.
+The key signals: if you're tweaking within a stage, refine. If you want to compare approaches before committing, explore. If you want to compare approaches *visually* rather than *conceptually*, rapid-explore. If you're crossing stages or making structural revisions, major version. If you need full parallel pipelines through wireframing and testing, branch.
 
 Branches can't be nested — you can't branch a branch. If the branch itself needs a different direction, branch the original parent instead. This prevents a tree of variants that becomes impossible to track.

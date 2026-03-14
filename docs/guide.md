@@ -18,6 +18,8 @@ Each skill reads the previous stage's artifact, does its work through dialogue o
 
 **User testing** runs simulated usability walkthroughs with behavioral personas (generated from the brief, provided by you, or loaded from `personas.md` in the project directory). Each persona encounters the design independently, reacts based on their specific behavior patterns, and surfaces friction that generic review misses. Results include consensus issues, a highest-leverage fix recommendation, and an explicit check against the concept's key bet.
 
+**Rapid exploring** auto-develops all approaches from concept-forming to wireframe depth without user dialogue. It reads `approaches.md`, autonomously resolves tensions for each approach based on its stated priorities, generates concept directions and full ASCII wireframes, and saves each to `exploration/{approach-slug}.md`. After all approaches are materialized, it presents a comparison summary and lets you pick one or combine elements from several into a single direction that promotes to `concept.md` and `wireframes.md`. Use this when you want to visually compare all directions before committing — faster than exploring each one manually, at the cost of human nuance in tension resolution.
+
 **Concept branching** creates sibling variant directories for exploring alternative directions. It copies the brief and personas into a new directory, letting you re-run concept-forming with a different constraint or branch into an approach you didn't choose the first time. Useful when you want to compare two directions side by side without losing work.
 
 ---

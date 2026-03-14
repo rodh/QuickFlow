@@ -16,7 +16,7 @@ This is deliberate. Jumping to wireframes before articulating the core interacti
 
 ### Opinionated defaults, flexible execution
 
-The workflow has a design flow (design-briefing → concept-forming → wireframing → simulated-user-testing) that produces tested wireframes.
+The workflow has a design flow (design-briefing → concept-forming → rapid-exploring → wireframing → simulated-user-testing) that produces tested wireframes.
 
 You can run the full pipeline end-to-end, skip stages that don't apply, or jump in at any point. A wireframe doesn't require a brief to exist first. Running simulated-user-testing on screenshots you already have is perfectly valid. The workflow is a recommended sequence, not a gate.
 

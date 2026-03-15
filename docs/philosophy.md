@@ -16,11 +16,11 @@ This is deliberate. Jumping to wireframes before articulating the core interacti
 
 ### Opinionated defaults, flexible execution
 
-The workflow has a design flow (design-briefing → concept-forming → wireframing → simulated-user-testing) that produces tested wireframes.
+The workflow has a design flow (design-briefing → concept-forming → user-testing → [wireframing ↔ user-testing]) that produces tested wireframes.
 
-You can run the full pipeline end-to-end, skip stages that don't apply, or jump in at any point. A wireframe doesn't require a brief to exist first. Running simulated-user-testing on screenshots you already have is perfectly valid. The workflow is a recommended sequence, not a gate.
+You can run the full pipeline end-to-end, skip stages that don't apply, or jump in at any point. A wireframe doesn't require a brief to exist first. Running user-testing on screenshots you already have is perfectly valid. The workflow is a recommended sequence, not a gate.
 
-But when a stage runs, it runs with opinion. concept-forming doesn't present neutral options — it names what each approach prioritizes, what it sacrifices, and when it breaks. simulated-user-testing doesn't produce generic usability feedback — it simulates specific people with specific behaviors encountering the design for the first time. The system would rather be wrong and specific than right and vague.
+But when a stage runs, it runs with opinion. concept-forming doesn't present neutral options — it names what each approach prioritizes, what it sacrifices, and when it breaks. user-testing doesn't produce generic usability feedback — it simulates specific people with specific behaviors encountering the design for the first time. The system would rather be wrong and specific than right and vague.
 
 ### Artifacts over conversations
 
@@ -36,7 +36,7 @@ This specificity makes the output actionable downstream. A coding agent can buil
 
 ### Honest feedback, not validation
 
-The system is built to challenge, not confirm. concept-forming pressure-tests your direction by naming what it sacrifices and when it breaks. simulated-user-testing simulates real users who miss things, get confused, and say blunt things — it tests with behavior patterns, not opinion. Each persona encounters the design based on how they actually use software, not what they'd say in a survey. If a wireframe has a fundamental problem, the system says so directly rather than softening the finding.
+The system is built to challenge, not confirm. concept-forming pressure-tests your direction by naming what it sacrifices and when it breaks. user-testing simulates real users who miss things, get confused, and say blunt things — it tests with behavior patterns, not opinion. Each persona encounters the design based on how they actually use software, not what they'd say in a survey. If a wireframe has a fundamental problem, the system says so directly rather than softening the finding.
 
 This extends to knowing when to stop. Commands flag diminishing returns when iteration stops producing structural improvements. Three rounds of wireframe changes is the explicit cap — if the structure isn't converging by then, the problem is upstream in an ambiguous concept, not downstream in layout tweaks. The system tells you to re-run concept-forming rather than continuing to adjust wireframes past the point of structural return.
 
@@ -60,14 +60,10 @@ There's a practical benefit too. ASCII wireframes live in the same medium as eve
 
 ---
 
-## Refine vs. branch
+## Concept-forming and the iteration loop
 
-The system encodes a specific decision framework for when to iterate vs. when to branch:
+Concept-forming handles the full path from approaches to wireframes. It presents 2-3 genuinely different directions, then auto-develops all of them — resolving tensions autonomously, generating concept directions, and producing full ASCII wireframes for each. You compare the materialized approaches and pick one or combine elements from several. The result promotes to `concept.md` and `wireframes.md`.
 
-**Refine** when the brief and problem framing are still right but the solution needs work. Re-run wireframing or concept-forming. The previous artifact auto-snapshots to `archive/` — you don't lose anything, but the design directory always shows the current version.
+If you already know which direction you want, name the approach directly and concept-forming develops it through dialogue instead — working through tensions and concept direction interactively before saving.
 
-**Branch** when you need a structurally different approach to the same problem. concept-branching creates a new design directory that shares the parent's brief but diverges from concept onward. Both versions persist independently.
-
-The key signal: if you're changing the interaction model, the information architecture, or the core assumption about user behavior, that's a branch. If you're adjusting layout, adding a screen, or fixing flow issues, that's a refine.
-
-Branches can't be nested — you can't branch a branch. If the branch itself needs a different direction, branch the original parent instead. This prevents a tree of variants that becomes impossible to track.
+After concept-forming produces wireframes, the iteration loop takes over: run user-testing to surface usability issues, then wireframing to fix them, then user-testing again. Repeat until the design is stable. Wireframing becomes a refinement tool at this stage, not initial generation — concept-forming already handled that.

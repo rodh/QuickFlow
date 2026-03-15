@@ -1,9 +1,9 @@
 ---
-name: simulated-user-testing
+name: user-testing
 description: Use when wireframes exist and you need to validate the design against realistic user behavior before implementation
 ---
 
-**Workflow context:** Typically follows wireframing. Reads wireframes + concept, produces `test-results.md` and `personas.md`.
+**Workflow context:** Typically follows wireframing. Reads `wireframes.md` and `concept.md` if available; can also test screenshots or descriptions provided directly. Produces `test-results.md` and `personas.md`.
 
 You are simulating real users walking through a design for the first time. Not a heuristic review. Not a checklist. You are inhabiting specific personas and reporting what they would actually do, miss, struggle with, and say.
 
@@ -20,19 +20,18 @@ Check for `personas.md` in the current directory.
 
 **All paths → save to `personas.md`** in the current directory before running the walkthrough. After first run, the project owns its personas — no more prompts, consistent testing.
 
-Good personas have: a name, a role, a key behavioral trait, a trust/speed orientation, their current workflow (what they do today without this product), and a usage context (when/where/how often). Examples:
-
-- "Karen, compliance-focused financial advisor, 15 years experience. Reads every label before clicking. Needs to understand what happens before she acts. Trust threshold is high — she won't use automation she can't verify. Currently tracks compliance manually in Excel and double-checks every entry. Uses work tools at her desk during client prep, 2-3 hours daily."
-- "Mike, high-volume insurance agent, 3 years experience. Wants speed above all. Ignores anything not in his direct workflow path. Skips onboarding, dismisses modals without reading them. Currently processes quotes through three separate systems, copy-pasting between them. Uses tools on his phone between client meetings, in bursts of 2-3 minutes."
+Good personas have: a name, a role, a key behavioral trait, a trust/speed orientation, their current workflow (what they do today without this product), and a usage context (when/where/how often).
 
 ## Input
 
-The user will provide one of:
-- A text description of the design concept and screens
-- Screenshots pasted into the conversation
-- A reference to wireframes from a previous wireframe session
+Check for `wireframes.md` in the current directory. If found, use it. Also check for `concept.md` — if found, use the key bet as a validation target.
 
-If the concept direction included a "key bet" (an assumption about user behavior), use that as a specific thing to test. Report explicitly whether each persona's behavior validates or contradicts the bet.
+If no wireframes.md exists, the user must provide one of:
+- A text description of the screens and layout
+- Screenshots pasted into the conversation
+- Inline wireframes in their message
+
+If no concept.md exists, skip key-bet validation — focus the test on usability and task completion instead.
 
 ## Adaptive screens
 
@@ -44,11 +43,13 @@ Before testing, scan the wireframe for adaptive elements. If found:
 2. **Label findings as structure or content.** Structure = layout, hierarchy, navigation (same for all). Content = copy, topics, curation (varies per user). State which it is when reporting issues.
 3. **Flag untested personalization.** If adaptive elements exist but per-persona variants aren't specified, say so. Don't silently run all personas against one variant.
 
-## Version stamp
+## Versioning
 
-Before running the walkthrough:
-1. Count `wireframes-v*.md` in `archive/` + 1 (if no archives, version is 1).
-2. Start `test-results.md` with: `**Tested against:** wireframes v{N}` as the first line.
+Start `test-results.md` with `# Test Results v{N}` where N = previous version + 1 (read the current heading to get the previous number; if no file exists, N = 1). On the next line, add `**Tested against:** wireframes v{M}` (read the version from the `wireframes.md` heading).
+
+Increment the version only when wireframes have changed since the last test run. If re-running tests against the same wireframes, overwrite in place with the same version number.
+
+After saving, append to `design-log.md`: `- **test-results v{N}** — tested wireframes v{M}. [one-line summary of key findings]`
 
 ## Output
 
@@ -61,17 +62,6 @@ Follow the output format in `test-output-format.md` for walkthrough structure, a
 - Every observation must be grounded in a specific persona's behavior pattern and the specific design being tested — no generic usability feedback.
 - If the design description is too vague to simulate a walkthrough, say so and ask for specifics. Don't fake it.
 - Don't soften the findings. If the design has a fundamental problem, say it directly.
-- Flag when iteration stops producing improvements.
-
-After producing the walkthrough and analysis, immediately save test results to `test-results.md` (and `personas.md` if generated) using the "Before saving" archive logic below.
-
-## Before saving
-
-Before overwriting `test-results.md` or `personas.md`, check if each already exists. For each existing file, archive it:
-1. Ensure `archive/` exists
-2. Move existing file to `archive/{artifact}-v{n}.md` (where n = count of existing `{artifact}-v*.md` in `archive/` + 1)
-3. Write new content to the original path
-
-Archive each file independently.
+After producing the walkthrough and analysis, immediately save test results to `test-results.md` (and `personas.md` if generated), overwriting in place.
 
 $ARGUMENTS

@@ -12,13 +12,11 @@ Each skill reads the previous stage's artifact, does its work through dialogue o
 
 **Design briefing** opens a dialogue with you to distill messy input into a problem statement, constraints, known context, open questions, and an opinionated first instinct. It asks clarifying questions one at a time — probing for gaps, surfacing ambiguity, and testing assumptions — before synthesizing the brief. This is the foundation everything else builds on.
 
-**Concept forming** explores the solution space. It presents genuinely different approaches — not three flavors of the same idea, but different interaction models with different trade-offs. You converge on a concept direction: "We're going with X because Y. The key bet is Z. We'll know it works if W."
+**Concept forming** explores the solution space. It presents genuinely different approaches — not three flavors of the same idea, but different interaction models with different trade-offs. Then it auto-develops all approaches to wireframe depth — resolving tensions autonomously, generating concept directions and full ASCII wireframes for each — and presents a comparison summary so you can pick one or combine elements from several. The result promotes to `concept.md` and `wireframes.md`. If you already know which approach you want, name it directly and the skill develops it through dialogue instead.
 
-**Wireframing** translates the concept into screen structure using ASCII art. The constraint of ASCII keeps the focus on information architecture and interaction flow rather than visual polish. Iteration is capped at three rounds — if the structure isn't stable by then, the problem is in the concept, not the layout.
+**User testing** runs simulated usability walkthroughs with behavioral personas (generated from the brief, provided by you, or loaded from `personas.md` in the project directory). Each persona encounters the design independently, reacts based on their specific behavior patterns, and surfaces friction that generic review misses. Results include consensus issues, a highest-leverage fix recommendation, and an explicit check against the concept's key bet. After concept-forming produces initial wireframes, run user-testing to validate them. Issues found feed back into wireframing for fixes.
 
-**User testing** runs simulated usability walkthroughs with behavioral personas (generated from the brief, provided by you, or loaded from `personas.md` in the project directory). Each persona encounters the design independently, reacts based on their specific behavior patterns, and surfaces friction that generic review misses. Results include consensus issues, a highest-leverage fix recommendation, and an explicit check against the concept's key bet.
-
-**Concept branching** creates sibling variant directories for exploring alternative directions. It copies the brief and personas into a new directory, letting you re-run concept-forming with a different constraint or branch into an approach you didn't choose the first time. Useful when you want to compare two directions side by side without losing work.
+**Wireframing** translates or refines screen structure using ASCII art. After concept-forming produces initial wireframes, wireframing handles iteration — fixing issues surfaced by user-testing, adjusting layout, adding screens. The constraint of ASCII keeps the focus on information architecture and interaction flow rather than visual polish. Iteration is capped at three rounds — if the structure isn't stable by then, the problem is in the concept, not the layout. Wireframing and user-testing form an iteration loop: fix issues, retest, repeat until stable.
 
 ---
 
@@ -47,13 +45,13 @@ Skills don't generate output in one shot. Most open a conversation — presentin
 
 **Three interaction modes:**
 
-**Absorb.** Some skills take input and produce output without back-and-forth. User testing runs persona walkthroughs against your wireframes. Concept branching copies and diverges. Recap captures session thinking. Checkpoint reads artifacts and orients you. You give the agent material, it processes it, done. These skills are transactional — the quality of the output depends on the quality of the input, not on mid-process conversation.
+**Absorb.** Some skills take input and produce output without back-and-forth. User testing runs persona walkthroughs against your wireframes. Recap captures session thinking. Checkpoint reads artifacts and orients you. You give the agent material, it processes it, done. These skills are transactional — the quality of the output depends on the quality of the input, not on mid-process conversation.
 
-**Dialogue.** Design-briefing and concept-forming open with structured engagement and expect you to react. Design-briefing asks clarifying questions one at a time before drafting the brief — probing gaps, testing assumptions, and surfacing requirements you hadn't articulated. Concept-forming presents 2-4 concept directions with explicit trade-offs and expects you to push back or choose. The conversation typically converges in 2-3 exchanges. Two responses matter here:
+**Dialogue + autonomy.** Design-briefing and concept-forming open with structured engagement and expect you to react. Design-briefing asks clarifying questions one at a time before drafting the brief — probing gaps, testing assumptions, and surfacing requirements you hadn't articulated. Concept-forming presents 2-3 approaches with explicit trade-offs, then auto-develops all of them to wireframe depth — you re-engage to compare, combine, and commit. Two responses matter during the approach phase:
 - **Challenge an option** — the agent rethinks rather than defends. If you say "approach B feels too complex," it doesn't argue for B — it revisits what made B seem necessary and looks for simpler alternatives.
 - **Reject everything** — the agent treats this as a signal that the real constraint hasn't surfaced yet. Instead of generating more options, it asks what's wrong with all of them. The answer usually reveals a requirement that wasn't in the brief.
 
-**Iterate.** Wireframing presents structure and accepts directed feedback — move this section, break this into two screens, show the empty state. Each round produces a revised wireframe you can react to again. This is capped at about 3 rounds. After that, the agent flags diminishing returns: either the wireframe is structurally sound and remaining issues are visual (handle those downstream), or the problems are upstream in the concept and further wireframe tweaking won't fix them.
+**Iterate.** Wireframing and user-testing form an iteration loop. User-testing surfaces usability issues; wireframing fixes them. Each wireframing round produces a revised wireframe you can react to or retest. Wireframing is capped at about 3 rounds per cycle — if the structure isn't converging, the problem is upstream in the concept, not in layout tweaks.
 
 **How feedback gets incorporated.** Across all modes, the agent doesn't defend its output. A challenge to a concept direction means rethinking the direction, not producing a better justification for it. A request to restructure a wireframe means restructuring, not explaining why the current structure is actually fine. The agent treats your reactions as constraints, not objections to overcome.
 
@@ -65,7 +63,7 @@ Skills don't generate output in one shot. Most open a conversation — presentin
 
 The system reconstructs context from artifacts, not conversation history. When you run checkpoint in a directory with existing artifacts, it reads every artifact, detects the current stage, and orients you.
 
-Artifacts carry the decisions. Session recaps (recap) carry the thinking between artifacts. Auto-archive preserves iteration history. Resumption isn't a special feature — it's a side effect of how the system already works.
+Artifacts carry the decisions. Session recaps (recap) carry the thinking between artifacts. Git history preserves iteration history. Resumption isn't a special feature — it's a side effect of how the system already works.
 
 ---
 

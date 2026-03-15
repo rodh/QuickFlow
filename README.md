@@ -89,7 +89,7 @@ It runs as an opinionated workflow: each stage produces a persistent artifact th
 
   ✓ Wireframes saved → wireframes.md
 
-> /simulated-user-testing
+> /user-testing
 
   3 personas walked through the design independently.
   Consensus issue: mute toggle is discoverable but "mute duration" isn't —
@@ -128,16 +128,15 @@ $checkpoint my-first-design
 | Skill | What it does | Output |
 |-------|-------------|--------|
 | design-briefing | Distill raw context into a working brief through dialogue | `brief.md` |
-| concept-forming | Explore the solution space, land on a concept direction | `concept.md`, `approaches.md` |
+| concept-forming | Explore the solution space, develop all approaches to wireframe depth, pick or combine | `concept.md`, `approaches.md`, `wireframes.md`, `exploration/` |
 | wireframing | Generate ASCII wireframes from the concept | `wireframes.md` |
-| simulated-user-testing | AI persona usability walkthroughs | `test-results.md`, `personas.md` |
+| user-testing | AI persona usability walkthroughs | `test-results.md`, `personas.md` |
 
 ### Iteration and session management
 
 | Skill | What it does | Output |
 |-------|-------------|--------|
 | checkpoint | Check status, resume, or create a design directory | — |
-| concept-branching | Branch into an alternative design direction | sibling directory with copied artifacts |
 | recap | Capture session decisions and open threads | `sessions/YYYY-MM-DD-HHMM.md` |
 
 ## Learn more

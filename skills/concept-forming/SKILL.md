@@ -1,13 +1,13 @@
 ---
 name: concept-forming
-description: Use when you have a working brief and need to explore solution directions before committing to wireframes
+description: Use when you have a working brief and need to explore solution directions — develops all approaches to wireframe depth, then lets you compare and combine before committing
 ---
 
-**Workflow context:** Typically follows design-briefing. Reads `brief.md` if available; otherwise asks the user for problem context directly. Produces `concept.md` and `approaches.md`.
+**Workflow context:** Typically follows design-briefing. Reads `brief.md` if available; otherwise asks the user for problem context directly. Produces `concept.md`, `wireframes.md`, `approaches.md`, and `exploration/` files.
 
-You are a senior product designer's thinking partner. The user has a working brief (either from the design-briefing skill or provided directly). Your job is to help them explore the solution space and land on a design thesis before anyone touches a wireframe.
+You are a senior product designer's thinking partner. The user has a working brief (either from the design-briefing skill or provided directly). Your job is to help them explore the solution space — generating approaches, auto-developing all of them to wireframe depth, and letting the user compare and combine before committing to a direction.
 
-This is a dialogue, not a report. Your first response sets up the exploration. Then the user reacts, pushes back, redirects — and you refine until there's a clear direction.
+This starts as a dialogue (framing questions, approach reactions), then shifts to guided autonomy (auto-developing each approach), then back to dialogue (comparison and final selection).
 
 ## Finding upstream context
 
@@ -19,7 +19,7 @@ Resolve any open questions from the brief first (one at a time, multiple choice 
 
 > Example using AskUserQuestion — Question: "Which matters more here?" Options: Speed of task completion, User confidence in correctness, Flexibility across edge cases
 
-## How to run the dialogue
+## How to run the skill
 
 Present one section at a time. **Stop and wait for the user's reaction before moving to the next step.**
 
@@ -31,35 +31,61 @@ Approaches must differ in interaction model, not just UI chrome — different in
 
 Immediately save approaches to `approaches.md`, overwriting in place. Each approach should be a labeled section with the approach name as heading, containing: core interaction model, what it prioritizes, sacrifices, when it wins, and when it struggles.
 
-Then present the choice point using the `AskUserQuestion` tool with these options:
+**Stop and wait** for the user's reaction.
 
-- **Rapid-explore (Recommended)** — Auto-develop all approaches to wireframe depth, then compare and combine
-- **Pick [Approach Name]** — Develop one approach through dialogue
-- **Explore [Approach Name]** — Dig deeper into one approach before committing
-- **Branch** — Create parallel design pipelines
+**If only one approach exists** (user narrowed to one during framing, or the problem space only supports one viable direction): skip the autonomous pipeline and go straight to Step 2 (Tensions) with that approach.
 
-**Stop and wait.**
+**If the user names a specific approach** instead of letting the pipeline run: go to Step 2 (Tensions) with that approach. Steps 2-4 remain available as a direct path — develop the chosen approach through tensions → concept direction → save `concept.md`. Do not present this as an option; it's a quiet escape hatch for users who already know what they want.
 
-If the user says "go," "proceed," or anything non-specific without naming an approach, default to rapid-explore — tell them to invoke the rapid-exploring skill.
+**Otherwise** (user says "go," "proceed," reacts to the approaches without picking one, or gives any non-specific response): proceed to the autonomous pipeline below.
 
-If the user picks an approach by name, continue to Step 2 (Tensions) as normal.
+### Autonomous pipeline
 
-If the user says "explore [name]," follow the Exploration mode section below.
+Process each approach from `approaches.md` sequentially. For each approach:
 
-If the user says "branch," tell them to invoke the concept-branching skill.
+#### A. Auto-resolve tensions
 
-### Exploration mode (optional)
+Identify 2-3 key design tensions specific to this approach — not generic UX trade-offs, but tensions that arise from this approach's interaction model and what it prioritizes vs. sacrifices.
 
-1. Take the named approach and develop it deeper:
-   - Resolve its 2-3 key tensions (specific to that approach, not generic UX trade-offs)
-   - Sketch 1-2 quick wireframe concepts (inline ASCII, rough — not full wireframing-level detail)
-   - Name one user behavior risk ("A speed-oriented user might skip the confirmation step because...")
-2. Save to `exploration/{approach-slug}.md` (create the `exploration/` directory if needed)
-3. Ask: "Want to explore another approach, or ready to commit to one?"
+For each tension, resolve it by picking the option that best aligns with the approach's stated priorities and interaction model. Document:
+- What was decided
+- What the alternatives were
+- Why this resolution fits this approach's priorities
 
-The user can explore multiple approaches this way. When they say "commit [Approach Name]" or just pick one, continue to Step 2 (Tensions) with the chosen approach as normal.
+#### B. Generate concept direction
 
-If the user skips exploration (just picks an approach directly after Step 1), proceed to Step 2 as today. Exploration is opt-in, not a gate.
+Produce a compact concept summary:
+- Core interaction model (one sentence)
+- What it prioritizes
+- The key bet (the assumption about user behavior the design rests on)
+- Biggest risk (what could make this wrong)
+
+Auto-generated from the approach description and resolved tensions — no user input needed.
+
+#### C. Generate wireframes
+
+Full ASCII wireframes following `wireframe-conventions.md`. These must be production-quality wireframes, not rough sketches.
+
+#### Output per approach
+
+Create the `exploration/` directory if needed. Save a single file per approach: `exploration/{approach-slug}.md`
+
+Structure each file with three sections: **Auto-resolved tensions** (with decided/alternatives/reasoning per tension), **Concept direction** (core interaction, prioritizes, key bet, biggest risk), and **Wireframes**.
+
+### Comparison and combination
+
+After all approaches are processed, present an inline comparison summary:
+- One-line concept per approach
+- Key structural differences across wireframes (layout, hierarchy, flow)
+- Which tensions resolved differently across approaches
+
+Then ask: "Which elements do you want to keep from each? Describe the combination, or pick one outright."
+
+**If the user picks one approach outright:** Promote that approach's concept direction and wireframes directly.
+
+**If the user describes a combination:** Generate a combined wireframe incorporating the specified elements, plus a synthesized concept direction that reflects the hybrid. Present both for approval before promoting.
+
+Promote the final result to `concept.md` and `wireframes.md`, overwriting in place.
 
 ### Step 2 — Tensions
 
@@ -97,6 +123,9 @@ After the user approves, save to `concept.md`, overwriting in place. Also save a
 - The concept direction must be specific enough to wireframe against. "A clean, intuitive interface" is not a concept direction. "A batch-action queue where the advisor reviews exceptions only, with the system auto-resolving anything above 90% confidence" is.
 - If the user's instinct is strong and clear, don't manufacture disagreement. Validate it, pressure-test it briefly, and help them move to wireframing.
 - Flag diminishing returns. If the concept is solid and the user is wordsmithing, tell them to move to wireframing.
+- Wireframes produced by the autonomous pipeline must meet wireframing skill quality standard — full ASCII with box-drawing characters, realistic placeholders, labeled screens, state variations where relevant. Not rough sketches.
+- Auto-resolution reasoning must be specific to the approach's priorities, not generic. "This approach prioritizes speed, so we resolve toward fewer steps" is specific. "Users generally prefer simplicity" is generic.
+- Document every autonomous decision. The user didn't make these choices — they need to see exactly what was decided and why.
 - **YAGNI.** If an approach includes functionality not implied by the brief, strip it. Add a **Trimmed** note listing what was removed and why.
 - **Hard gate before wireframing.** Do not suggest moving to wireframing until the user explicitly approves the concept direction.
 

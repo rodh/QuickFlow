@@ -1,4 +1,6 @@
-# Rapid-Exploring Signposting Implementation Plan
+# ~~Rapid-Exploring Signposting Implementation Plan~~
+
+> **Superseded.** Rapid-exploring has been merged into concept-forming and the separate skill deleted. This implementation plan is no longer relevant. See the updated `skills/concept-forming/SKILL.md`.
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 

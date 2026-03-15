@@ -1,4 +1,6 @@
-# Design: Elevate rapid-exploring as the recommended post-concept path
+# ~~Design: Elevate rapid-exploring as the recommended post-concept path~~
+
+> **Superseded.** Rapid-exploring has been merged into concept-forming and the separate skill deleted. The choice point described below no longer exists — concept-forming now auto-develops all approaches to wireframe depth by default. See the updated `skills/concept-forming/SKILL.md`.
 
 ## Problem
 

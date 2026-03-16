@@ -11,16 +11,8 @@ It runs as an opinionated workflow: each stage produces a persistent artifact th
 > **Platform syntax:** Claude Code uses `/skill-name`, Codex CLI uses `$skill-name`. This example uses `/` — swap for your platform's prefix.
 
 ```
-> /checkpoint STASH-team-notifications
-
-  No design named "STASH-team-notifications" found. Create it? (y/n)
-
-> y
-
-  Created STASH-team-notifications/. Ready for design-briefing.
-
 > /design-briefing
-  [STASH-92.md]  [topics-screen-current.png]
+  [notifications-requirements.md]  [current-save-flow.png]
 
   Teams need to be notified when a teammate saves content to a shared
   topic. Currently saves are silent. Want push + in-app notifications
@@ -45,16 +37,7 @@ It runs as an opinionated workflow: each stage produces a persistent artifact th
   C. Notify-on-save — push per save, per-topic mute.
      Immediate, but noisier.
 
-  Which direction, or push back?
-
-> Explore all three
-
-  Developing all approaches to wireframe depth...
-
-  ✓ Three approaches developed → exploration/
-
-  Comparison: A and B are pull-based — user checks for updates.
-  C is push-based — updates come to the user.
+> Explore all three.
 
   A: New "Activity" tab            C: Inline notification banner
   ┌───────────────────────┐        ┌───────────────────────┐
@@ -68,11 +51,25 @@ It runs as an opinionated workflow: each stage produces a persistent artifact th
   │ └───────────────────┘ │        │   Brand Guidelines    │
   └───────────────────────┘        └───────────────────────┘
 
-  Which elements do you want to keep, or pick one outright?
+  B: Daily digest notification
+  ┌───────────────────────┐
+  │ Today's Activity      │
+  │ ┌───────────────────┐ │
+  │ │ Design Systems    │ │
+  │ │ 3 new saves today │ │
+  │ │ Product Research  │ │
+  │ │ 1 new save today  │ │
+  │ └───────────────────┘ │
+  └───────────────────────┘
 
-> C — mute controls inline is exactly right
+  A and B are pull-based — user checks for updates.
+  C is push-based — updates come to the user.
 
-  ✓ Concept + wireframes promoted → concept.md, wireframes.md
+  ✓ All three developed → exploration/
+
+> C — mute controls inline is exactly right.
+
+  ✓ Concept locked → concept.md
   Direction: notify-on-save with inline mute controls.
   Key bet: users will manage noise themselves if controls are
   within reach.
@@ -94,18 +91,44 @@ It runs as an opinionated workflow: each stage produces a persistent artifact th
   │ │ Sarah saved "Q3 OKRs"        │ │
   │ │ to Design Systems       [x]  │ │
   │ │  [View]  [Mute ▾]            │ │
-  │ │  ┌─────────────────────┐     │ │
-  │ │  │ Mute for 1 hour     │     │ │
-  │ │  │ Mute for 1 day      │     │ │
-  │ │  │ Mute forever        │     │ │
-  │ │  └─────────────────────┘     │ │
+  │ │  ┌─────────────────────────┐ │ │
+  │ │  │ Mute for 1 hour        │ │ │
+  │ │  │ Mute for 1 day         │ │ │
+  │ │  │ Mute forever           │ │ │
+  │ │  └─────────────────────────┘ │ │
   │ └──────────────────────────────┘ │
   │  ★ Design Systems            (3) │
   │    Product Research          (1) │
   │    Brand Guidelines              │
   └──────────────────────────────────┘
 
-  ✓ Wireframes saved → wireframes.md
+  ✓ Wireframes updated → wireframes.md
+
+> /user-testing
+
+  3 personas re-tested the updated wireframe.
+  No critical issues. Minor: consider "Unmute" confirmation.
+
+  ✓ Test results saved → test-results-r2.md
+
+  This cycle repeats as needed:
+
+           │
+           ▼
+  ┌─────────────────┐◄──────────────┐
+  │  wireframing     │               │
+  └────────┬────────┘               │
+           ▼                        │
+  ┌─────────────────┐    ┌─────────┴───────┐
+  │  user-testing    │───►│ Issues found?   │
+  └────────┬────────┘    │ Refine & retest │
+           │              └─────────────────┘
+           │ (passes)
+           ▼
+  ┌─────────────────────────────────┐
+  │ Ready to implement              │
+  │ → Hand off to your build tools  │
+  └─────────────────────────────────┘
 ```
 
 ## Try it

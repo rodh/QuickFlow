@@ -65,7 +65,7 @@ $user-testing [screenshot.png]
 > **Platform syntax:** Claude Code uses `/skill-name`, Codex CLI uses `$skill-name`. This example uses `/` — swap for your platform's prefix.
 
 ```
-> /design-briefing
+▶ /design-briefing
   [notifications-requirements.md]  [current-save-flow.png]
 
   Teams need to be notified when a teammate saves content to a shared
@@ -80,7 +80,8 @@ $user-testing [screenshot.png]
 
   ✓ Brief saved → brief.md
 
-> /concept-forming
+
+▶ /concept-forming
 
   Three directions:
 
@@ -128,7 +129,8 @@ $user-testing [screenshot.png]
   Key bet: users will manage noise themselves if controls are
   within reach.
 
-> /user-testing
+
+▶ /user-testing
 
   3 personas walked through the design independently.
   Consensus issue: mute toggle is discoverable but "mute duration"
@@ -138,7 +140,8 @@ $user-testing [screenshot.png]
 
   ✓ Test results saved → test-results.md
 
-> /wireframing fix the mute duration issue
+
+▶ /wireframing fix the mute duration issue
 
   ┌──────────────────────────────────┐
   │ ┌──────────────────────────────┐ │
@@ -158,7 +161,8 @@ $user-testing [screenshot.png]
 
   ✓ Wireframes updated → wireframes.md
 
-> /user-testing
+
+▶ /user-testing
 
   3 personas re-tested the updated wireframe.
   No critical issues. Minor: consider "Unmute" confirmation.

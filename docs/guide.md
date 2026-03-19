@@ -10,7 +10,7 @@ Each skill reads the previous stage's artifact, does its work through dialogue o
 
 **Framing** opens a dialogue to distill messy input into a problem statement, constraints, known context, open questions, and an opinionated first instinct. It asks clarifying questions one at a time — probing gaps, surfacing ambiguity, testing assumptions — before synthesizing the frame.
 
-**Ideating** explores the solution space. It presents genuinely different approaches — different interaction models with different trade-offs — then auto-develops all of them to wireframe depth. You compare the materialized approaches and pick one or combine elements from several. The result promotes to `ideation.md` and `wireframes-v1.md`.
+**Ideating** explores the solution space. It presents genuinely different approaches — different interaction models with different trade-offs — then auto-develops all of them to wireframe depth. You compare the materialized approaches and pick one or combine elements from several. The result promotes to `ideation.md` and `wireframes.md`.
 
 **User testing** runs simulated usability walkthroughs with behavioral personas (generated from the frame, provided by you, or loaded from `personas.md`). Each persona encounters the design independently and surfaces friction that generic review misses. Results include consensus issues, a highest-leverage fix, and a check against the concept's key bet.
 
@@ -98,7 +98,7 @@ Never skip framing-in-forma. Even simple fixes benefit from a clear frame.
 
 ### Good to know
 
-**Auto-save.** All skills save their output immediately. Wireframes and test results use versioned files (`wireframes-v1.md`, `wireframes-v2.md`, etc.) — each version is its own file. Other artifacts overwrite in place.
+**Auto-save.** All skills save their output immediately. Wireframes and test results write to `wireframes.md` and `test-results.md` — the current version always lives at the root. When a new version is created, the previous file is archived to `archive/wireframes-v{N}.md` or `archive/test-results-v{N}.md`. Other artifacts overwrite in place.
 
 **Any skill can be the entry point.** status-in-forma is optional — run framing-in-forma directly if you don't need the status check.
 

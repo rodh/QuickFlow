@@ -49,9 +49,9 @@ $user-testing-in-forma [screenshot.png]
 | Skill | What it does | Output |
 |-------|-------------|--------|
 | framing-in-forma | Distill raw context into a working frame through dialogue | `frame.md` |
-| ideating-in-forma | Explore the solution space, develop all approaches to wireframe depth, pick or combine | `ideation.md`, `approaches.md`, `wireframes-v{N}.md`, `exploration/` |
-| wireframing-in-forma | Generate ASCII wireframes from the concept | `wireframes-v{N}.md` |
-| user-testing-in-forma | AI persona usability walkthroughs | `test-results-v{N}.md`, `personas.md` |
+| ideating-in-forma | Explore the solution space, develop all approaches to wireframe depth, pick or combine | `ideation.md`, `approaches.md`, `wireframes.md`, `exploration/` |
+| wireframing-in-forma | Generate ASCII wireframes from the concept | `wireframes.md` |
+| user-testing-in-forma | AI persona usability walkthroughs | `test-results.md`, `personas.md` |
 
 ### Iteration and session management
 
@@ -139,7 +139,7 @@ $user-testing-in-forma [screenshot.png]
   Recommendation: add a duration picker (1h, 1d, forever) to the
   mute action.
 
-  ✓ Test results saved → test-results-v1.md
+  ✓ Test results saved → test-results.md
 
 
 ▶ /wireframing-in-forma fix the mute duration issue
@@ -160,7 +160,7 @@ $user-testing-in-forma [screenshot.png]
   │    Brand Guidelines              │
   └──────────────────────────────────┘
 
-  ✓ Wireframes updated → wireframes-v2.md
+  ✓ Wireframes updated → wireframes.md
 
 
 ▶ /user-testing-in-forma
@@ -168,7 +168,7 @@ $user-testing-in-forma [screenshot.png]
   3 personas re-tested the updated wireframe.
   No critical issues. Minor: consider "Unmute" confirmation.
 
-  ✓ Test results saved → test-results-v2.md
+  ✓ Test results saved → test-results.md
 
   This cycle repeats as needed:
 

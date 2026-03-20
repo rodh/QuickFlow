@@ -1,35 +1,27 @@
 ---
 name: thinking-in-forma
-description: Thinking partner for understanding problems, evaluating directions, and reasoning through design decisions — works with or without existing artifacts
+description: Use when you need to reason through a design decision, understand a ticket, explore a hunch, or compare options — works with or without existing artifacts
 ---
 
 **Workflow context:** Thinking partner — works before, during, or between design stages. Adapts to whatever context exists.
 
 ## 1. Read context
 
-Read any design artifacts that exist in CWD: `frame.md`, `ideation.md`, `wireframes.md`, `test-results.md`, `personas.md`, any research files in `research/`, plus the most recent session note in `sessions/`. Also read any input the user provides — ticket content, questions, links, screenshots. Note what exists and what doesn't — this determines how the skill behaves.
+Read all design artifacts in CWD (`frame.md`, `ideation.md`, `wireframes.md`, `test-results.md`, `personas.md`, `research/`, latest `sessions/` note) plus any user-provided input. Note what exists and what doesn't — this determines behavior.
 
 ## 2. Frame
 
 Detect the thinking pattern from `$ARGUMENTS` and context.
 
 **Orient ("help me understand this ticket/problem"):**
-- Triggered by: ticket content, task descriptions, or "what is this asking" type questions. Also triggered when no design artifacts exist and the user provides raw context.
-- Decompose the ask into:
-  1. **What's being asked** — the literal request, in plain language
-  2. **What the actual problem is** — the underlying need behind the request
-  3. **What it connects to** — dependencies, related systems, upstream/downstream effects
-  4. **Level of effort** — what scope of design response this warrants (quick fix → full design loop) and why
-- If external research is requested or clearly needed, conduct it and present findings as a separate section.
-- If the research produces substantial findings (more than a few bullet points — e.g., a competitive analysis, technical feasibility assessment, or data synthesis), save the research to `research/{topic-slug}.md` in addition to including findings in the analysis. The research file should be self-contained: include a title, date, the question investigated, findings, and sources/reasoning. Create the `research/` directory if needed. If a research file with the same slug already exists, read it first and either update it or use a more specific slug.
+- Triggered by: ticket content, task descriptions, "what is this asking" questions, or raw context with no existing artifacts.
+- Decompose into: (1) what's being asked, (2) the actual problem underneath, (3) what it connects to, (4) level of effort (quick fix → full design loop).
+- If research is needed, conduct and present separately. Save substantial findings to `research/{topic-slug}.md` (self-contained: title, date, question, findings, sources).
 - **Output:** structured understanding with level-of-effort recommendation
 
 **Hunch ("something feels off"):**
-- Present a compact design state summary (one sentence per artifact)
-- Ask "what's nagging you?" — open-ended
-- Ask one question per message. If more clarity is needed, break it into sequential exchanges — don't stack questions.
-- Allow 1-2 rounds to get from vague → specific
-- Surface tensions in the existing artifacts as options if the user can't articulate it
+- Present compact design state summary (one sentence per artifact), then ask "what's nagging you?"
+- One question per message. Allow 1-2 rounds to get from vague → specific. Surface artifact tensions as options if they can't articulate it.
 - **Output:** a precise statement of the issue
 
 **What-if ("what if we tried..."):**
@@ -44,23 +36,17 @@ Detect the thinking pattern from `$ARGUMENTS` and context.
 
 **STOP after Frame.** Present the framed output and wait for the user to confirm or adjust before proceeding to Think. Do not deliver Frame and Think in the same response.
 
-If ambiguous, ask one AskUserQuestion with four labeled options:
-- **A. Understand something** — orient around a ticket, problem, or new context
-- **B. Surface something** — a hunch or instinct to explore
-- **C. Explore a what-if** — trace a specific idea through the design
-- **D. Decide between options** — compare alternatives and commit
-
-If during framing it becomes clear the user needs a different skill (e.g., they need to re-run user-testing-in-forma), say so directly and suggest the appropriate skill.
+If ambiguous, ask one AskUserQuestion: **A. Understand something** (orient), **B. Surface something** (hunch), **C. Explore a what-if**, **D. Decide between options**. If the user needs a different skill, say so directly.
 
 ## 3. Think
 
 **Orient pattern — three-part analysis:**
 
-1. **Breakdown** — decompose the problem into its constituent parts, name each clearly
-2. **Landscape** — what exists already (internal systems, prior work, external tools/data), what's new, what's uncertain. If external research was conducted, integrate findings here.
-3. **Effort assessment** — what level of design engagement each part warrants, what could be handled with a light touch vs. what needs the full design loop
+1. **Breakdown** — decompose the problem into constituent parts, name each clearly
+2. **Landscape** — what exists already, what's new, what's uncertain. Integrate any external research.
+3. **Effort assessment** — what level of design engagement each part warrants (light touch vs. full design loop)
 
-End with 2-3 labeled next moves based on the effort assessment — e.g., "A. This is a quick fix — skip straight to wireframing. B. The problem is clear but the approach isn't — move into a brief. C. We need to dig deeper into [specific uncertain area] first." The options should reflect the actual situation, not a generic menu.
+End with 2-3 labeled next moves reflecting the actual situation, not a generic menu.
 
 **Hunch/What-if/Decision patterns — four-part analysis:**
 
@@ -69,58 +55,50 @@ End with 2-3 labeled next moves based on the effort assessment — e.g., "A. Thi
 3. **Strongest argument for each side** — steel-man all positions (even for hunches: steel-man "it's actually fine" vs "there's a real problem")
 4. **What we'd need to believe** — the assumption about user behavior each direction rests on
 
-**Dialogue pacing per pattern:**
-- Orient: deliver the full breakdown, then stop and ask what to dig into. 1 exchange for focused tickets, 2-3 for complex missions.
-- Hunch: pause after presenting tensions, check in after each piece of analysis. 2-3 exchanges total.
-- What-if: deliver the four-part analysis as one block, then stop and ask "worth pursuing or dead end?" 1 exchange.
-- Decision: deliver the four-part analysis as one block, then stop and ask "which way are you leaning?" Pressure-test their answer briefly before moving to Act. 1 exchange.
+**Dialogue pacing:**
 
-Each pause means **stop and wait for the user's response** — do not continue to the next phase in the same message.
+| Pattern | Delivery | Exchanges |
+|---------|----------|-----------|
+| Orient | Full breakdown, then ask what to dig into | 1 (focused) to 2-3 (complex) |
+| Hunch | Pause after tensions, check in after each analysis piece | 2-3 |
+| What-if | Four-part analysis as one block, then "worth pursuing or dead end?" | 1 |
+| Decision | Four-part analysis as one block, then "which way are you leaning?" Pressure-test before Act. | 1 |
 
-When asking the user to choose or react, prefer labeled options (A/B/C) over open-ended questions. Open-ended is fine when the space is genuinely unconstrained, but most mid-process questions have a finite set of plausible answers.
+Each pause = **stop and wait** — do not continue to the next phase in the same message. Prefer labeled options (A/B/C) over open-ended questions.
 
 ## 4. Act
 
-If thinking leads to artifact changes:
-- List each file and the specific change proposed
-- Get approval per file via AskUserQuestion (approve / reject / modify)
-- On approval: apply changes. If modifying wireframes or test-results, archive the current file to `archive/` and write a new `wireframes.md` or `test-results.md`
+If thinking leads to artifact changes: list each file and proposed change, get approval per file via AskUserQuestion (approve / reject / modify), then apply. Archive wireframes/test-results before overwriting.
 
-If understanding is ready to feed into a brief (orient pattern): offer to pass specific findings (level of effort, problem framing, research) as constraints into framing-in-forma. Don't auto-invoke — just name what would carry forward and let the user decide when.
+If orient pattern produced findings ready for a brief: name what would carry into framing-in-forma and let the user decide. Don't auto-invoke.
 
 If no changes needed: skip to Capture.
 
 ## 5. Capture
 
-Write session note to `sessions/YYYY-MM-DD-HHMM.md`:
+Write session note to `sessions/YYYY-MM-DD-HHMM.md` (create directory if needed):
 
 - **Type:** Thinking
 - **Session summary** — 2-3 sentences
 - **Trigger** — the user's opening statement
 - **Frame** — the precise question or decomposition arrived at
-- **Analysis** — key points from Think (compressed, not the full analysis)
+- **Analysis** — key points from Think (compressed)
 - **Resolution** — what was decided or understood
 - **Artifact changes** — what was modified, or "None"
-- **Research output** — if research was saved to `research/`, note the filename and one-line description
-- **Feeds forward** — what findings should carry into future skills (level of effort, constraints, research). Only for orient pattern.
+- **Research output** — filename and one-line description (if saved to `research/`)
+- **Feeds forward** — findings for future skills (orient pattern only)
 - **Open threads** — anything surfaced but not resolved
-
-Create the `sessions/` directory if it doesn't exist.
 
 ## Rules
 
-- Be direct. No preamble, no filler.
-- Dialogue scales with ambiguity: vague inputs get more back-and-forth, clear inputs get autonomous analysis.
+- Be direct. No preamble, no filler. Labeled bullets for discrete items, prose for narrative.
 - Quote artifacts, don't summarize — the user needs to see exactly what you're referencing.
 - Steel-man all positions. Don't lead the user toward a predetermined answer.
-- YAGNI: if the thinking resolves without needing artifact changes, don't invent changes to make.
-- If the thinking reveals an upstream problem (concept-level, not wireframe-level), name it. Don't patch downstream artifacts to work around a concept issue.
-- One precise statement anchors the whole session. If Frame fails to produce one, keep asking until it does.
-- Labeled bullets for discrete items, prose for narrative.
-- **Never deliver Frame and Think in the same response.** Frame produces a question; wait for confirmation. Think produces analysis; wait for a reaction. Each phase ends with the user's input before the next begins.
-- Adapt to context. If artifacts exist, reference them. If they don't, work with what the user provides. Don't complain about missing artifacts.
-- Orient is for understanding, not designing. Don't jump to solutions. Decompose the problem, assess effort, surface what matters — then let the user decide what to do with it.
-- Don't skip thinking because it "seems obvious." If you're in thinking-in-forma, the user invoked it for a reason. Do the work even for seemingly simple decisions.
-- Research should be clearly labeled and separated from analysis. The user needs to know what's factual (from research) vs. what's your assessment.
+- YAGNI: if thinking resolves without needing artifact changes, don't invent changes to make.
+- If thinking reveals an upstream problem (concept-level, not wireframe-level), name it. Don't patch downstream artifacts to work around a concept issue.
+- **Never deliver Frame and Think in the same response.** Each phase ends with the user's input before the next begins.
+- Orient is for understanding, not designing — decompose and assess, don't jump to solutions.
+- Don't skip thinking because it "seems obvious." The user invoked it for a reason.
+- Research must be clearly labeled and separated from analysis — factual vs. assessment.
 
 $ARGUMENTS

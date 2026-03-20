@@ -22,17 +22,11 @@ After the personas list, produce the following sections in this order:
 
 ### Action items
 
-Every "fix now" consensus issue, most impactful first. Format: `- **AI-{n}.** Brief description — why it matters`
+Always use three sections (omit any that would be empty). Number items sequentially as AI-{n} — these IDs are stable references across test iterations. Format: `- **AI-{n}.** Brief description — why it matters`
 
-Number action items sequentially (AI-1, AI-2, AI-3...). These IDs are stable references used across test iterations. Keep it scannable — one line per item, no paragraphs.
-
-### On subsequent tests
-
-When a prior `test-results.md` exists: read prior results and compare previous action items against current wireframes. Instead of a single action items section, produce three sections (omit any that would be empty):
-
-- **Resolved from previous test:** Items the current wireframes have addressed. Preserve original AI-{n} IDs.
-- **Remaining issues:** Items still present. Preserve original AI-{n} IDs. Re-state why each still matters.
-- **New findings:** Issues not in prior action items. Continue numbering from max prior ID + 1.
+- **Resolved from previous test:** Items the current wireframes have addressed. Preserve original AI-{n} IDs. (Empty on first test run.)
+- **Remaining issues:** Items still present from prior tests. Preserve original AI-{n} IDs. Re-state why each still matters. (Empty on first test run.)
+- **New findings:** Issues found in this test. On first run, this contains all items. On subsequent runs, continue numbering from max prior ID + 1.
 
 ### Consensus issues
 

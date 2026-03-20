@@ -1,6 +1,6 @@
 ---
 name: log-in-forma
-description: Capture session context — decisions, insights, and open threads — in a debrief before ending a design session
+description: Use when ending a design session and you want to preserve decisions, insights, and open threads that aren't in the artifacts
 ---
 
 **Workflow context:** Captures session decisions and open threads to `sessions/YYYY-MM-DD-HHMM.md`. Run at the end of any session worth preserving.

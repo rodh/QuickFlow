@@ -25,9 +25,9 @@ Save `brief.md` at the run root.
 
 ### Phase 2 — Ideate
 
-Read `brief.md`. Auto-resolve any remaining open questions using the decision protocol. Generate 2-3 approaches with distinct interaction models — different trade-offs, not UI variations. For each approach, auto-resolve tensions and generate a concept direction (core interaction, key bet, biggest risk).
+Read `brief.md`. Auto-resolve any remaining open questions using the decision protocol. Generate 2-3 approaches with distinct interaction models — different trade-offs, not UI variations.
 
-Save `approaches.md` at the run root. Save `concept.md` inside each approach subdirectory (`{approach-slug}/concept.md`).
+Save `approaches.md` at the run root.
 
 ### Phase 3 — Generate personas
 
@@ -41,9 +41,10 @@ Process all approaches — each is independent with its own subdirectory and no 
 
 For each approach:
 
-1. **Wireframe.** Generate full ASCII wireframes per `wireframe-conventions.md` from the approach's `concept.md`. Save `wireframes.md` in the approach subdirectory.
-2. **Test.** Run persona walkthroughs per `test-output-format.md` using shared `personas.md`. Save `test-results.md` in the approach subdirectory.
-3. **Iterate (cap: 1 cycle).** If any consensus issues are tagged "Fix now", revise wireframes and retest. Save updated files in the same subdirectory. If the second test still has Fix Now items, note as unresolved and stop.
+1. **Concept.** Auto-resolve tensions and generate a concept direction (core interaction, key bet, biggest risk). Save `concept.md` in the approach subdirectory.
+2. **Wireframe.** Generate full ASCII wireframes per `wireframe-conventions.md` from the concept. Save `wireframes.md` in the approach subdirectory.
+3. **Test.** Run persona walkthroughs per `test-output-format.md` using shared `personas.md`. Save `test-results.md` in the approach subdirectory.
+4. **Iterate (cap: 1 cycle).** If any consensus issues are tagged "Fix now", revise wireframes and retest. Save updated files in the same subdirectory. If the second test still has Fix Now items, note as unresolved and stop.
 
 ### Phase 5 — Summarize
 

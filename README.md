@@ -6,39 +6,29 @@ Forma gives your AI coding agent a design thinking workflow — frame problems, 
 
 It runs as an opinionated workflow: each stage produces a persistent artifact that survives across sessions and engages in structured dialogue rather than one-shot generation. Run the stages in order, or jump to the one you need — the workflow adapts either way. You pick up any design exactly where you left off.
 
-## Try it
+## Install
 
-```
-git clone https://github.com/rodh/Forma.git
-```
+### Claude Code
 
-Start from scratch:
-
-**Claude Code:**
-
-```
-/framing-in-forma
+```sh
+git clone https://github.com/rodh/Forma.git ~/.local/share/forma
+for skill in ~/.local/share/forma/skills/*-in-forma; do
+  ln -s "$skill" ~/.claude/skills/$(basename "$skill")
+done
 ```
 
-**Codex CLI:**
+Each skill must be a direct child of `~/.claude/skills/` so Claude Code can discover it. Symlinks keep them updatable with `git pull`.
 
-```
-$framing-in-forma
-```
+### Codex CLI
 
-Or jump in anywhere:
-
-**Claude Code:**
-
-```
-/user-testing-in-forma [screenshot.png]
+```sh
+git clone https://github.com/rodh/Forma.git ~/.local/share/forma
+for skill in ~/.local/share/forma/skills/*-in-forma; do
+  ln -s "$skill" ~/.codex/skills/$(basename "$skill")
+done
 ```
 
-**Codex CLI:**
-
-```
-$user-testing-in-forma [screenshot.png]
-```
+Each skill must be a direct child of `~/.codex/skills/` so Codex can discover it. Symlinks keep them updatable with `git pull`.
 
 ## Skills
 

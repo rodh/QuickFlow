@@ -83,7 +83,7 @@ When you need to understand a problem, assess level of effort, or reason through
 
 ### Resuming work
 
-Run status-in-forma with no arguments in a directory with design artifacts. It shows existing artifacts, missing artifacts, session context from the most recent recap, and options to continue or advance. Or use status-in-forma with a name argument to create a named subdirectory.
+Run status-in-forma with no arguments in a directory with design artifacts. It shows existing artifacts, missing artifacts, session context from the most recent session note, and options to continue or advance. Or use status-in-forma with a name argument to create a named subdirectory.
 
 ### Skipping stages
 

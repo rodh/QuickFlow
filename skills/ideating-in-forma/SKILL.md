@@ -9,15 +9,19 @@ description: Use when you have a working brief and need to explore solution dire
 
 Check for `brief.md` in the current directory. If found, use it. If not, ask: "No brief found. Describe the problem you're solving, who it affects, and any known constraints — I'll work from that."
 
-## Before proposing approaches
-
-Resolve any open questions from the brief first (one at a time, multiple choice preferred). Then ask 1-2 framing questions if priorities aren't already clear — what they value most, what they'd sacrifice. Skip if the brief makes priorities obvious.
-
 ## How to run the skill
 
 Present one section at a time. **Stop and wait for the user's reaction before moving to the next step.**
 
-### Step 1 — Approaches
+### Step 1 — Resolve open questions
+
+Read the **Open questions** section from `brief.md`. Ask each open question one at a time using multiple choice options. **Stop and wait** after each question — do not batch them or continue until the user answers.
+
+After open questions are resolved, ask 1-2 framing questions if the user's priorities aren't already clear — what they value most, what they'd sacrifice. **Stop and wait** after each. Skip if the brief makes priorities obvious.
+
+**Do not propose approaches until all open questions are resolved.**
+
+### Step 2 — Approaches
 
 Present 2-3 approaches. For each: core interaction model (one sentence), what it prioritizes, what it sacrifices, when it wins, when it struggles. Use labeled bullets. Approaches must differ in interaction model, not just UI chrome.
 
@@ -26,8 +30,8 @@ Immediately save to `approaches.md`, overwriting in place.
 **Stop and wait** for the user's reaction.
 
 **Branching:**
-- **One approach only** (narrowed during framing or only one viable): skip pipeline, go to Step 2 (Tensions).
-- **User picks a specific approach**: go to Step 2 (Tensions) with that approach — quiet escape hatch, don't present it as an option.
+- **One approach only** (narrowed during framing or only one viable): skip pipeline, go to Step 3 (Tensions).
+- **User picks a specific approach**: go to Step 3 (Tensions) with that approach — quiet escape hatch, don't present it as an option.
 - **Otherwise** (user says "go," reacts without picking, or any non-specific response): proceed to autonomous pipeline below.
 
 ### Autonomous pipeline
@@ -59,13 +63,13 @@ After all approaches are processed, present: one-line concept per approach, key 
 
 Promote final result to `concept.md` and `wireframes.md`.
 
-### Step 2 — Tensions
+### Step 3 — Tensions
 
 Present the key design tensions for the chosen direction — not generic UX trade-offs, but the ones that matter for this problem and these users. Use labeled bullets (`- **Tension name.** Explanation`).
 
 Not every tension needs a question — some are informational. If a tension requires a design decision, ask one question at a time. **Stop and wait** after each question.
 
-### Step 3 — Concept direction
+### Step 4 — Concept direction
 
 After tensions are resolved, present the concept direction:
 - "We're going with [approach] because [reason grounded in user need]."
@@ -76,7 +80,7 @@ After tensions are resolved, present the concept direction:
 
 **Stop and wait** for explicit approval before saving.
 
-### Step 4 — Save
+### Step 5 — Save
 
 After the user approves, save to `concept.md`, overwriting in place. Also save after each subsequent iteration round.
 

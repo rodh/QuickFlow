@@ -38,25 +38,21 @@ Immediately save to `approaches.md`, overwriting in place.
 
 Process each approach from `approaches.md` sequentially. For each approach:
 
-#### A. Auto-resolve tensions
-
-Identify 2-3 key design tensions specific to this approach (not generic UX trade-offs). For each, resolve by picking the option that best aligns with the approach's priorities. Document: what was decided, alternatives considered, why this resolution fits.
-
-#### B. Generate concept direction
+#### A. Generate concept direction
 
 Produce a compact concept summary: core interaction model (one sentence), what it prioritizes, the key bet (assumption about user behavior), biggest risk. Auto-generated — no user input needed.
 
-#### C. Generate wireframes
+#### B. Generate wireframes
 
 Full ASCII wireframes following `wireframe-conventions.md`. These must be production-quality wireframes, not rough sketches.
 
 #### Output per approach
 
-Save each to `exploration/{approach-slug}.md` (create directory if needed). Three sections: **Auto-resolved tensions**, **Concept direction**, **Wireframes**.
+Save each to `exploration/{approach-slug}.md` (create directory if needed). Two sections: **Concept direction**, **Wireframes**.
 
 ### Comparison and combination
 
-After all approaches are processed, present: one-line concept per approach, key structural differences across wireframes, which tensions resolved differently. Ask: "Which elements do you want to keep from each? Describe the combination, or pick one outright."
+After all approaches are processed, present: one-line concept per approach, key structural differences across wireframes — reference components by their labels (A1, B3, etc.) when describing what differs. Ask: "Each component is labeled (A1, B2, etc.) — reference labels to describe your combination, or pick one approach outright."
 
 - **Picks one:** Promote that approach's concept direction and wireframes directly.
 - **Describes a combination:** Generate combined wireframe + synthesized concept direction. Present for approval before promoting.
@@ -92,7 +88,6 @@ After the user approves, save to `concept.md`, overwriting in place. Also save a
 - The concept direction must be specific enough to wireframe against. "A clean, intuitive interface" is not a concept direction. "A batch-action queue where the advisor reviews exceptions only, with the system auto-resolving anything above 90% confidence" is.
 - If the user's instinct is strong, don't manufacture disagreement — pressure-test briefly and help them move forward. Flag diminishing returns if they're wordsmithing a solid concept.
 - Autonomous pipeline wireframes must meet wireframing skill quality standard — full ASCII, realistic placeholders, labeled screens, state variations. Not rough sketches.
-- Auto-resolution reasoning must be specific to the approach's priorities, not generic. Document every autonomous decision — the user needs to see exactly what was decided and why.
 - **YAGNI.** Strip functionality not implied by the brief. Add a **Trimmed** note.
 - **Hard gate.** Do not suggest wireframing-in-forma until the user explicitly approves the concept direction.
 - **Asking questions:** Use `AskUserQuestion` with labeled options. One question per tool call. Open-ended only when the answer space is too wide for options. If unavailable, fall back to text with lettered options.

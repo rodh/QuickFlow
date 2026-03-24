@@ -23,9 +23,9 @@ Follow conventions in `wireframe-conventions.md` for alignment, spacing, interac
 
 **Naming:** Label each screen: `Screen 1: [Name]` with a one-line description of what the user is doing here.
 
-**First pass depth:** On the first wireframing pass, produce full wireframes for key screens (screens showing the core interaction model + primary happy path) and stubs for all other screens (state variations, empty states, secondary flows, edge cases). Label stubs clearly so they're visually distinct from full wireframes. The complete flow should be understandable from key screens + stubs — stubs carry enough detail for personas to follow the journey and for later hydration.
+**First pass depth:** On the first wireframing pass, produce full wireframes for key screens and stubs for everything else (state variations, empty states, secondary flows, edge cases). Aim for **2–3 key screens**. A screen is key if removing it would make the core interaction model unclear — if the flow still reads without a full wireframe, it's a stub. Default to stub; promote to key only when necessary. If you're producing more than 3 key screens, state why each is essential before proceeding. Label stubs clearly so they're visually distinct from full wireframes. The complete flow should be understandable from key screens + stubs — stubs carry enough detail for personas to follow the journey and for later hydration.
 
-**States:** Identify relevant state variations — empty, loaded, error, loading — and include them as stubs on first pass. Show which states exist and their key elements, but don't produce full wireframes for them until hydration.
+**States:** Identify relevant state variations — empty, loaded, error, loading — and include them as stubs on first pass. States are always stubs, never key screens. Show which states exist and their key elements, but don't produce full wireframes for them until hydration.
 
 After generating the first wireframes, immediately save them. Don't wait for the user to say "save" — auto-save every pass.
 

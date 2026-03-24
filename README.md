@@ -8,6 +8,23 @@ It runs as an opinionated workflow: each stage produces a persistent artifact th
 
 ## Install
 
+```sh
+git clone https://github.com/rodh/Forma.git ~/.local/share/forma
+~/.local/share/forma/install.sh
+```
+
+The install script detects Claude Code and Codex CLI automatically and symlinks each skill into the right directory. Run it again any time — it's idempotent.
+
+```sh
+./install.sh              # Install to all detected platforms
+./install.sh uninstall    # Remove symlinks (leave clone intact)
+./install.sh update       # git pull + re-install + prune stale
+./install.sh status       # Show what's linked where
+```
+
+<details>
+<summary>Manual install</summary>
+
 ### Claude Code
 
 ```sh
@@ -29,6 +46,8 @@ done
 ```
 
 Each skill must be a direct child of `~/.codex/skills/` so Codex can discover it. Symlinks keep them updatable with `git pull`.
+
+</details>
 
 ## Skills
 

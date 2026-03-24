@@ -64,6 +64,6 @@ After the user approves, save to `concept.md`, overwriting in place. Also save a
 - If the user's instinct is strong, don't manufacture disagreement — pressure-test briefly and help them move forward. Flag diminishing returns if they're wordsmithing a solid concept.
 - **YAGNI.** Strip functionality not implied by the brief. Add a **Trimmed** note.
 - **Hard gate.** Do not suggest wireframing-in-forma until the user explicitly approves the concept direction. Once approved, wireframing-in-forma is the natural next step — it produces key screens + stubs, with hydration as a later step.
-- **Asking questions:** Use `AskUserQuestion` with labeled options. One question per tool call. Open-ended only when the answer space is too wide for options. If unavailable, fall back to text with lettered options.
+- **Asking questions:** Use the interactive question tool (`AskUserQuestion` or `requestUserInput`) with labeled options. One question per tool call. Open-ended only when the answer space is too wide for options. If neither tool is available, fall back to text with lettered options.
 
 $ARGUMENTS

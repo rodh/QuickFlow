@@ -41,7 +41,7 @@ Detect the thinking pattern from `$ARGUMENTS` and context.
 - Save findings to `research/{topic-slug}.md` with: title, date, question, findings, key takeaways (2-3 bullets), sources (if applicable).
 - Present a summary with key takeaways. The research artifact is the only output.
 
-If ambiguous, ask one AskUserQuestion: **A. Understand something** (orient), **B. Surface something** (hunch), **C. Explore a what-if**, **D. Decide between options**, **E. Research something** (research). If the user needs a different skill, say so directly.
+If ambiguous, ask one interactive question (`AskUserQuestion` or `requestUserInput`): **A. Understand something** (orient), **B. Surface something** (hunch), **C. Explore a what-if**, **D. Decide between options**, **E. Research something** (research). If the user needs a different skill, say so directly.
 
 ## 3. Think
 
@@ -74,7 +74,7 @@ Each pause = **stop and wait** — do not continue to the next phase in the same
 
 ## 4. Act
 
-If thinking leads to artifact changes: list each file and proposed change, get approval per file via AskUserQuestion (approve / reject / modify), then apply. Archive wireframes/test-results before overwriting.
+If thinking leads to artifact changes: list each file and proposed change, get approval per file via interactive question (`AskUserQuestion` or `requestUserInput`) (approve / reject / modify), then apply. Archive wireframes/test-results before overwriting.
 
 If orient pattern produced findings ready for a brief: name what would carry into framing-in-forma and let the user decide. Don't auto-invoke.
 

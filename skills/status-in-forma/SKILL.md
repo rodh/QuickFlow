@@ -13,7 +13,7 @@ If `$ARGUMENTS` is empty, follow these steps to report status:
 
 ### 1. Scan current directory for artifacts
 
-Search CWD and immediate subdirectories using file-search (not shell commands).
+Search CWD and immediate subdirectories using search tools (not shell commands).
 
 **Files:** `brief.md`, `concept.md`, `wireframes.md`, `test-results.md`, `personas.md`, `approaches.md`
 **Directories:** `research/`, `sessions/`, `archive/`

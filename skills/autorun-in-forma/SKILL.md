@@ -19,7 +19,7 @@ Every subagent dispatched in this pipeline receives this preamble in its prompt:
 
 > You are running `{skill-name}` autonomously as part of a design pipeline.
 >
-> **Auto-resolve protocol:** Do NOT use AskUserQuestion or ask the user anything. When the skill would normally ask a question or wait for user input, resolve the question yourself. For every auto-resolved question, document:
+> **Auto-resolve protocol:** Do NOT use interactive question tools (`AskUserQuestion`, `requestUserInput`) or ask the user anything. When the skill would normally ask a question or wait for user input, resolve the question yourself. For every auto-resolved question, document:
 > - **Decision:** What you decided
 > - **Alternatives:** What other options existed
 > - **Reasoning:** Why you chose this option
@@ -27,7 +27,7 @@ Every subagent dispatched in this pipeline receives this preamble in its prompt:
 >
 > Write all output files to: `{working-directory}`
 >
-> Invoke the skill `{skill-name}` using the Skill tool and follow its full process.
+> Invoke the skill `{skill-name}` and follow its full process.
 
 ## Pipeline
 
